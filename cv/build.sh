@@ -4,15 +4,16 @@
 #        ./cv/build.sh General    (only Saif_Ahmed_CV_General.tex)
 set -euo pipefail
 
-cd "$(dirname "$0")"
-SRC=src
-OUT=pdf
+# Run from cv/src so every CV finds the shared style file saifcv.sty.
+cd "$(dirname "$0")/src"
+SRC=.
+OUT=../pdf
 
 if [[ $# -gt 0 ]]; then
   files=()
   for name in "$@"; do files+=("$SRC/Saif_Ahmed_CV_${name}.tex"); done
 else
-  files=("$SRC"/*.tex)
+  files=("$SRC"/Saif_Ahmed_CV_*.tex)
 fi
 
 status=0

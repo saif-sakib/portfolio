@@ -1,126 +1,86 @@
 %──────────────────────────────────────────────────────────────
-%  CV — Md Saif Ahmed (General)
-%  Clean, single-column, ATS-friendly. Facts sourced from contents.txt
+%  CV — Md Saif Ahmed (General: SWE + CP + security)
+%  Facts sourced from profile/contents.txt. Style: saifcv.sty
 %──────────────────────────────────────────────────────────────
 \documentclass[10pt,a4paper]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[margin=0.45in]{geometry}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage{ragged2e}
-\raggedbottom
-\pagenumbering{gobble}
-
-\definecolor{accent}{HTML}{0B5394}
-\definecolor{dark}{HTML}{111827}
-\definecolor{gray}{HTML}{4B5563}
-\definecolor{lightgray}{HTML}{E5E7EB}
-\definecolor{ACCENT}{HTML}{0B5394}   % uppercase twins: \uppercase in section titles
-\definecolor{LIGHTGRAY}{HTML}{E5E7EB}
-
-\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent, pdfborder={0 0 0}}
-
-\titleformat{\section}
-  {\large\bfseries\color{accent}\uppercase}
-  {}{0em}{}
-  [\vspace{3pt}{\color{lightgray}\hrule height 0.6pt}]
-\titlespacing*{\section}{0pt}{6pt}{3pt}
-
-\setlist[itemize]{leftmargin=12pt, itemsep=0pt, parsep=0pt, topsep=1pt,
-  label=\textcolor{accent}{\small\textbullet}}
-
-\newcommand{\entry}[4]{%
-  \noindent\textbf{#1}\hfill{\small\color{gray}\textbf{#2}}\\[0pt]
-  {\small\itshape #3}\par\vspace{0pt}
-  \noindent #4\par\vspace{2pt}
-}
+\usepackage{saifcv}
+\hypersetup{pdftitle={Md Saif Ahmed — CV}}
 
 \begin{document}
 
-\begin{center}
-  {\huge\bfseries\color{dark} Md Saif Ahmed}\\\vspace{4pt}
-  {\small\color{gray} Software Engineer $\cdot$ Competitive Programmer $\cdot$ Cybersecurity Practitioner}
-  \\\vspace{6pt}
-  \small
-  \href{mailto:saifahmedsakib@gmail.com}{saifahmedsakib@gmail.com} $\cdot$
-  +880\,1701-667488 $\cdot$
-  \href{https://github.com/saif-sakib}{github.com/saif-sakib} $\cdot$
-  \href{https://codeforces.com/profile/Saif_Ahmed008}{Codeforces: Saif\_Ahmed008} $\cdot$
-  \href{https://www.linkedin.com/in/saif-ahmed-8a14651b0}{LinkedIn}
-\end{center}
+\cvheader{Software Engineer \textbar{} Competitive Programmer \textbar{} Cybersecurity Practitioner}
 
-\vspace{-4pt}
-\section{Summary}
-\begin{itemize}
-  \item Competitive programmer: \textbf{Champion}, BUP IAUPC 2025; \textbf{Rank 38}, ICPC Asia Dhaka Regional 2025.
-  \item Sole developer of \textbf{Hasnahena}, a live finance platform (Next.js + Go + PostgreSQL) serving real members.
-  \item Cybersecurity practitioner and instructor focused on OWASP Top 10 and CTFs (Rank 5, Cyber Drill 2025).
-\end{itemize}
+Computer Science undergraduate at MIST and \textbf{sole developer of Hasnahena}, a live interest-free finance
+platform (Next.js, Go, PostgreSQL) serving real members since August 2026. Strong algorithmic foundation from
+competitive programming (\textbf{BUP IAUPC 2025 champion}, ICPC Asia Dhaka Regional 2025) and hands-on security
+experience as a CTF player and former web security instructor.
+
+\vspace{6pt}
+\highlights{4}{
+  \stat{Champion}{BUP IAUPC 2025} &
+  \stat{38th}{ICPC Asia Dhaka Regional 2025} &
+  \stat{1700+}{problems solved \textbullet{} CF Specialist} &
+  \stat{5th}{Cyber Drill 2025 CTF}
+}
 
 \section{Education}
-
 \entry{B.Sc. in Computer Science \& Engineering}{2023 -- 2027 (Expected)}
-{Military Institute of Science and Technology (MIST), Dhaka}
-{\small CGPA: \textbf{3.58 / 4.00} (up to Level-3, Term-2)}
-
-\entry{Higher Secondary Certificate (HSC)}{2022}
-{Govt.\ M.\,M.\ College, Jashore}
-{\small GPA: \textbf{5.00 / 5.00}}
-
-\section{Competitive Programming}
-\noindent\textbf{Codeforces} \textcolor{accent}{\textbf{Specialist}} (Max 1514) $\cdot$ \textbf{CodeChef} \textcolor{accent}{\textbf{3-Star}} (Max 1722) $\cdot$ {\small\textit{1700+ problems solved on CF, CodeChef, LeetCode, CSES, AtCoder}}
-\begin{itemize}
-  \item \textbf{Champion}, BUP IAUPC 2025 (MIST\_EagleForces) $\cdot$ \textbf{Rank 38}, ICPC Asia Dhaka Regional 2025 (MIST\_EagleForces)
-  \item \textbf{Rank 16}, DUET IUPC 2025 $\cdot$ \textbf{Rank 16}, NSUCEC IUPC 2026 $\cdot$ \textbf{Rank 24}, DUET IUPC 2026 $\cdot$ \textbf{Rank 28}, CUET IUPC 2025 $\cdot$ \textbf{Rank 32}, NDUB IUPC 2026 $\cdot$ \textbf{Rank 43}, UIU IUPC 2025 $\cdot$ \textbf{Rank 44}, SUST IUPC 2026 $\cdot$ \textbf{Rank 46}, IUT IUPC 2026
-  \item \textbf{Rank 117}, ICPC Asia Dhaka Regional 2024 (MIST\_ChemistryHaters) $\cdot$ \textbf{Meta Hacker Cup 2024} — Round 2
-\end{itemize}
-
-\section{Technical Skills}
-\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{2.9cm} X @{}}
-Languages & C++ (primary), Go, Python, JavaScript, TypeScript, Java, SQL, Bash \\
-Frontend & React, Next.js, Tailwind CSS, shadcn/Radix UI, next-intl, Flutter, JavaFX \\
-Backend & Go (chi, pgx), Node.js, Express.js, FastAPI, Prisma, REST APIs, JWT \\
-Databases & PostgreSQL (Neon, Supabase), MongoDB, Oracle Database, MySQL \\
-Cloud \& DevOps & Vercel, Render, Cloudflare, Cloudinary, Docker, GitHub Actions, Sentry, UptimeRobot, Linux \\
-Security & OWASP Top 10, Web App Security, Penetration Testing, Burp Suite, Wireshark \\
-\end{tabularx}
+{Military Institute of Science and Technology (MIST), Dhaka \textbar{} CGPA \textbf{\upshape 3.58 / 4.00} (up to Level-3, Term-2)}{}
+\entry{Higher Secondary Certificate (HSC) \textmd{\color{gray}\small\textbar{} Govt.\ M.\,M.\ College, Jashore \textbar{} GPA 5.00 / 5.00}}{2022}{}{}
 
 \section{Projects}
-\entry{Hasnahena — Interest-Free Cooperative Finance Platform (Solo, Live)}
-{\href{https://hasnahenafoundation.com}{\small Live site}}
-{Tech Stack: Next.js 16, TypeScript, Go (chi, pgx), PostgreSQL (Neon), Prisma, Vercel, Render, Cloudflare}
+\entry{Hasnahena — Interest-Free Cooperative Finance Platform \textmd{\color{gray}(Solo, in production)}}
+{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com}}
+{Next.js 16, TypeScript, Go (chi, pgx), PostgreSQL (Neon), Prisma, Cloudflare, GitHub Actions}
 {\begin{itemize}
-  \item Sole developer of a \textbf{live} platform digitising a Jashore cooperative's passbook since Aug 2026: deposits, interest-free loans with guarantors, donations, disputes; English/Bengali.
-  \item Go API owns every balance-changing write in a single transaction; RBAC, JWT revocation, rate limiting, trigger-enforced append-only audit logs.
-  \item CI on \textbf{GitHub Actions}: Go integration tests under \texttt{-race}, Playwright e2e, gitleaks; load-tested at \textbf{\textasciitilde180 postings/s}. Monitored with \textbf{Sentry} and \textbf{UptimeRobot}.
+  \item Built and operate a platform digitising a Jashore cooperative's passbook, \textbf{live with real members since Aug 2026}: deposits, interest-free loans with guarantors, donations, disputes; English/Bengali.
+  \item Go API owns every balance-changing write in a \textbf{single database transaction}; RBAC, JWT with server-side revocation, rate limiting and trigger-enforced append-only audit logs.
+  \item CI on GitHub Actions: Go integration tests under \texttt{-race}, Playwright e2e, secret scanning; \textbf{load-tested at \textasciitilde180 postings/s}; encrypted daily backups with restore drills; Sentry and UptimeRobot.
 \end{itemize}}
-\entry{LocalFix — Civic Engagement Platform}
-{\href{https://github.com/saif-sakib/LocalFix}{\small GitHub}}
-{Tech Stack: React (Vite), Node.js, Express.js, Oracle Database, JWT, Mapbox GL}
+\entry{LocalFix — Civic Engagement Platform \textmd{\color{gray}(Team)}}
+{\linkto{https://github.com/saif-sakib/LocalFix}{GitHub}}
+{React (Vite), Node.js, Express.js, Oracle Database, JWT, Mapbox GL}
 {\begin{itemize}
-  \item Complaint management system connecting citizens who report civic issues (roads, waste) with workers and administrators.
-  \item Implemented \textbf{Role-Based Access Control (RBAC)} and optimized Oracle SQL queries, reducing data retrieval latency by \textbf{40\%}.
+  \item Complaint management system where citizens report civic issues (roads, waste) to authorities; role-based access control and optimized Oracle SQL queries \textbf{cut data retrieval latency by 40\%}.
 \end{itemize}}
 \section{Experience \& Leadership}
-\entry{Industrial Trainee}{2026 (4 weeks)}
-{JB Connect Ltd (JBC)}
+\entry{Industrial Trainee, JB Connect Ltd (JBC)}{2026 \textbar{} 4 weeks}{}
 {\begin{itemize}
-  \item Industry training in DevOps, backend and AI/ML; worked with company teams and built the team project \href{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.
+  \item Industry training in DevOps, backend and AI/ML, working on tasks with company teams; group project \linkto{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.
 \end{itemize}}
-\noindent\textbf{President}, MIST Computer Club (Jun 2026 -- Present): 15+ core members, 10+ events/year, ICPC camps for 200+ students. \textbf{CP Instructor} (May 2024 -- Present): mentoring 50+ students. Earlier: Vice President (2025--26), Executive Member (2024--25).
-\vspace{3pt}
+\entry{President, MIST Computer Club}{Jun 2026 -- Present}
+{Vice President (May 2025 -- Jun 2026) \textbar{} Executive Member (May 2024 -- May 2025)}
+{\begin{itemize}
+  \item Lead strategy and mentor \textbf{15+ core members} delivering \textbf{10+ technical events a year}; direct ICPC camps and workshops reaching \textbf{200+ students}.
+\end{itemize}}
+\entry{Competitive Programming Instructor, MIST Computer Club}{May 2024 -- Present}{}
+{\begin{itemize}
+  \item Mentor \textbf{50+ junior students} in algorithms with an \textbf{80\% retention rate}; curated 20+ problem sets and mock contests.
+\end{itemize}}
+\section{Competitive Programming}
+{\small \textbf{Codeforces} Specialist (max 1514) \textbar{} \textbf{CodeChef} 3-Star (max 1722) \textbar{} \textbf{1700+} problems solved on 5 online judges}
+\begin{results}
+BUP IAUPC 2025 & \rk{Champion} & DUET IUPC 2025 & \rk{16th} \\
+ICPC Asia Dhaka Regional 2025 \textit{\color{gray}(univ.\ teams)} & \rk{38th} & NSUCEC Cybernauts IUPC 2026 & \rk{16th} \\
+ICPC Asia Dhaka Regional 2024 \textit{\color{gray}(univ.\ teams)} & \rk{117th} & DUET IUPC 2026 & \rk{24th} \\
+Meta Hacker Cup 2024 & \rk{Round 2} & CUET IUPC 2025 & \rk{28th} \\
+\end{results}
 
 \section{Cybersecurity}
-\small
-\textbf{Roles:} Web Security Instructor, MIST Cyber Security Club (May 2024 -- Jun 2026; OWASP Top 10, 30+ students trained) $\cdot$ Executive Director, Mentor Committee (Jun 2025 -- Jun 2026) \\
-\textbf{CTFs:} Rank 5 Cyber Drill 2025 $\cdot$ Rank 34 Global, Bugcrowd USA CTF 2025 $\cdot$ Rank 13 SMP CTF 2024 $\cdot$ Finals: BUET, Cyber Raid, DIU Cybercon \\
-\textbf{Labs:} PortSwigger (70+), TryHackMe (29), PicoCTF (67+) $\cdot$ \textbf{Hackathons:} MIST Intra 2025, BUP CSE Fest 2026
-\normalsize
+\begin{results}
+Cyber Drill 2025 (WTISD Hackathon) & \rk{5th} & SMP CTF 2024 & \rk{13th} \\
+Bugcrowd USA CTF 2025 & \rk{34th global} & BUET CTF 2024, Cyber Raid 2025 (finals) & \rk{18th} \\
+\end{results}
+{\small \textbf{Web Security Instructor}, MIST Cyber Security Club (2024 -- 26): OWASP Top 10 and pentesting workshops, \textbf{30+ students} trained.\\
+\textbf{Tooling:} \linkto{https://github.com/saif-sakib/Brute-Buddy}{BruteBuddy}, a multi-threaded Python CLI for login fuzzing and brute-force testing (\textbf{3$\times$ faster}).\\
+\textbf{Practice:} PortSwigger Academy 70+ labs \textbar{} PicoCTF 67+ \textbar{} TryHackMe 29 rooms \textbar{} OverTheWire Natas}
+
+\section{Technical Skills}
+\begin{skills}
+Languages & C++, Go, Python, TypeScript, JavaScript, Java, SQL, Bash \\
+Web & React, Next.js, Tailwind CSS, Node.js, Express.js, FastAPI, Prisma, REST APIs, JWT \\
+Data \& Cloud & PostgreSQL, MongoDB, Oracle, MySQL \textbar{} Vercel, Render, Cloudflare, Docker, GitHub Actions, Sentry \\
+Security & OWASP Top 10, penetration testing, Burp Suite, Wireshark, RBAC, CSP, secret scanning \\
+\end{skills}
 
 \end{document}

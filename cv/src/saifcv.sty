@@ -1,0 +1,118 @@
+%──────────────────────────────────────────────────────────────
+%  saifcv.sty — shared style for all five CVs of Md Saif Ahmed
+%  Charter body, Helvetica-style (TeX Gyre Heros) headings, navy accent.
+%  Edit here, not in the individual CVs, so they stay consistent.
+%──────────────────────────────────────────────────────────────
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{saifcv}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{charter}
+\RequirePackage[scale=0.9]{tgheros}           % \sffamily for name, headings, titles
+\RequirePackage[protrusion=true,expansion=true,tracking=true]{microtype}
+\RequirePackage[a4paper,top=0.42in,bottom=0.38in,left=0.5in,right=0.5in]{geometry}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage{xcolor}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage[hidelinks]{hyperref}
+
+% Selectable, ATS-readable text (ligatures map back to letters).
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\raggedbottom
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{0pt}
+\linespread{1.0}
+
+%── Colours ────────────────────────────────────────────────────
+\definecolor{accent}{HTML}{0B5394}
+\definecolor{dark}{HTML}{1A1D23}
+\definecolor{gray}{HTML}{5B6270}
+\definecolor{lightgray}{HTML}{D6DAE0}
+\definecolor{band}{HTML}{EEF3F9}
+\definecolor{gold}{HTML}{9A6B12}
+% Uppercase twins: section titles are uppercased, colour names with them.
+\definecolor{ACCENT}{HTML}{0B5394}
+\definecolor{LIGHTGRAY}{HTML}{D6DAE0}
+
+\hypersetup{
+  pdfauthor={Md Saif Ahmed},
+  pdfcreator={Md Saif Ahmed},
+}
+\color{dark}
+
+%── Header ─────────────────────────────────────────────────────
+% \cvheader{headline}
+\newcommand{\cvheader}[1]{%
+  \begin{minipage}[b]{0.6\textwidth}
+    {\sffamily\bfseries\fontsize{25}{27}\selectfont\color{dark}Md Saif Ahmed}\\[5pt]
+    {\sffamily\fontsize{10.5}{12}\selectfont\color{accent}#1}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.38\textwidth}\raggedleft\small\color{gray}
+    \href{mailto:saifahmedsakib@gmail.com}{saifahmedsakib@gmail.com}\\
+    +880 1701-667488 \textbar{} Dhaka, Bangladesh\\
+    \href{https://github.com/saif-sakib}{github.com/saif-sakib} \textbar{}
+    \href{https://www.linkedin.com/in/saif-ahmed-8a14651b0}{LinkedIn}\\
+    \href{https://codeforces.com/profile/Saif_Ahmed008}{codeforces.com/profile/Saif\_Ahmed008}
+  \end{minipage}\par
+  \vspace{6pt}{\color{accent}\hrule height 1.2pt}\vspace{7pt}%
+}
+
+%── Highlight strip: \highlights{4}{\stat{38th}{ICPC ...} & ... }
+\newcommand{\stat}[2]{%
+  \begin{tabular}[t]{@{}c@{}}
+    {\sffamily\bfseries\fontsize{13.5}{15}\selectfont\color{accent}#1}\\[-1pt]
+    {\sffamily\scriptsize\color{gray}#2}
+  \end{tabular}}
+\newcommand{\highlights}[2]{%
+  \par\noindent{\setlength{\fboxsep}{4.5pt}%
+  \colorbox{band}{\begin{minipage}{\dimexpr\textwidth-2\fboxsep}%
+    \begin{tabularx}{\linewidth}{@{}*{#1}{>{\centering\arraybackslash}X}@{}}#2\end{tabularx}%
+  \end{minipage}}}\par\vspace{1pt}}
+
+%── Sections ───────────────────────────────────────────────────
+\newcommand{\sectionline}[1]{%
+  \MakeUppercase{\textls[90]{#1}}\hspace{7pt}%
+  {\color{LIGHTGRAY}\leaders\hbox{\rule[0.3ex]{1pt}{0.7pt}}\hfill\kern0pt}}
+\titleformat{\section}
+  {\sffamily\bfseries\fontsize{10.5}{12}\selectfont\color{accent}}
+  {}{0em}{\sectionline}
+\titlespacing*{\section}{0pt}{7pt}{3.5pt}
+
+%── Lists ──────────────────────────────────────────────────────
+\setlist[itemize]{leftmargin=11pt, itemsep=0.5pt, parsep=0pt, topsep=1pt, partopsep=0pt, before=\raggedright,
+  label={\color{accent}\raisebox{0.15ex}{\scriptsize\textbullet}}}
+
+%── Entries ────────────────────────────────────────────────────
+% \entry{Title}{Right-hand info}{Subtitle (may be empty)}{Body}
+\newcommand{\entry}[4]{%
+  {\sffamily\bfseries\color{dark}#1}\hfill{\sffamily\small\color{gray}#2}\par
+  \if\relax\detokenize{#3}\relax\else{\small\color{gray}\itshape #3}\par\fi
+  #4\par\vspace{2.5pt}}
+
+% Inline tech line under a project title
+\newcommand{\stack}[1]{\small\color{gray}\textit{#1}}
+
+% Small coloured link label used on the right of entries
+\newcommand{\linkto}[2]{\href{#1}{\mbox{\color{accent}#2}}}
+
+% Two-column result list: \begin{results} Contest & Rank & Contest & Rank \\ \end{results}
+\newcommand{\rk}[1]{{\sffamily\bfseries\color{accent}#1}}
+\newenvironment{results}
+  {\par\small\renewcommand{\arraystretch}{1.12}%
+   \tabularx{\textwidth}{@{}X r @{\hspace{22pt}} X r@{}}}
+  {\endtabularx\par\vspace{2pt}}
+
+% Skills table: \begin{skills} Label & items \\ \end{skills}
+\newenvironment{skills}
+  {\par\small\renewcommand{\arraystretch}{1.12}%
+   \tabularx{\textwidth}{@{}>{\leavevmode\color{dark}\sffamily\bfseries}p{2.75cm} X@{}}}
+  {\endtabularx\par}
+
+\endinput

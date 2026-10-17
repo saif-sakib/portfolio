@@ -21,7 +21,7 @@ CVs:
 - Only my own teams' results belong in `contents.txt` (my team names are listed there).
 - For group projects, don't claim specific parts as mine unless contents.txt says so.
 - Ranks: CVs use my rank "excluding BDOI teams" for ICPC Dhaka Regional; the official standings rank is recorded alongside it.
-- All five CVs share the same LaTeX preamble and style; keep them consistent when editing one.
+- All five CVs share one style file, `cv/src/saifcv.sty` (Charter body, TeX Gyre Heros headings, navy accent; macros `\cvheader`, `\highlights`/`\stat`, `\entry`, `results`, `skills`). Change layout there, not in individual CVs. Each CV follows the same order: header → summary → highlight strip → sections.
 - Every CV must stay **one page**. `./cv/build.sh` runs `pdflatex -interaction=nonstopmode` into `cv/pdf/`, checks the page count with `pdfinfo`, and deletes `*.aux *.log *.out`.
 - When `contents.txt` changes, update `site/src/data/profile.ts` too. The site follows the same fact rules as the CVs; it omits the phone number on purpose (public page).
 - Section titles are uppercased, so the colour names are also defined in UPPERCASE (`ACCENT`, `LIGHTGRAY`); keep both versions.

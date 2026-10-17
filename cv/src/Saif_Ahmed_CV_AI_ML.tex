@@ -1,124 +1,92 @@
 %──────────────────────────────────────────────────────────────
 %  CV — Md Saif Ahmed (AI/ML)
-%  Clean, single-column, ATS-friendly. Facts sourced from contents.txt
+%  Facts sourced from profile/contents.txt. Style: saifcv.sty
+%  Thinnest variant: strengthen as real AI/ML work is added to contents.txt.
 %──────────────────────────────────────────────────────────────
 \documentclass[10pt,a4paper]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[margin=0.45in]{geometry}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage{ragged2e}
-\raggedbottom
-\pagenumbering{gobble}
-
-\definecolor{accent}{HTML}{0B5394}
-\definecolor{dark}{HTML}{111827}
-\definecolor{gray}{HTML}{4B5563}
-\definecolor{lightgray}{HTML}{E5E7EB}
-\definecolor{ACCENT}{HTML}{0B5394}   % uppercase twins: \uppercase in section titles
-\definecolor{LIGHTGRAY}{HTML}{E5E7EB}
-
-\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent, pdfborder={0 0 0}}
-
-\titleformat{\section}
-  {\large\bfseries\color{accent}\uppercase}
-  {}{0em}{}
-  [\vspace{3pt}{\color{lightgray}\hrule height 0.6pt}]
-\titlespacing*{\section}{0pt}{6pt}{3pt}
-
-\setlist[itemize]{leftmargin=12pt, itemsep=0pt, parsep=0pt, topsep=1pt,
-  label=\textcolor{accent}{\small\textbullet}}
-
-\newcommand{\entry}[4]{%
-  \noindent\textbf{#1}\hfill{\small\color{gray}\textbf{#2}}\\[0pt]
-  {\small\itshape #3}\par\vspace{0pt}
-  \noindent #4\par\vspace{2pt}
-}
+\usepackage{saifcv}
+\hypersetup{pdftitle={Md Saif Ahmed — CV (AI/ML)}}
 
 \begin{document}
 
-\begin{center}
-  {\huge\bfseries\color{dark} Md Saif Ahmed}\\\vspace{4pt}
-  {\small\color{gray} AI/ML Engineer $\cdot$ Python Developer $\cdot$ Competitive Programmer}
-  \\\vspace{6pt}
-  \small
-  \href{mailto:saifahmedsakib@gmail.com}{saifahmedsakib@gmail.com} $\cdot$
-  +880\,1701-667488 $\cdot$
-  \href{https://github.com/saif-sakib}{github.com/saif-sakib} $\cdot$
-  \href{https://codeforces.com/profile/Saif_Ahmed008}{Codeforces: Saif\_Ahmed008} $\cdot$
-  \href{https://www.linkedin.com/in/saif-ahmed-8a14651b0}{LinkedIn}
-\end{center}
+\cvheader{Software Engineer (AI/ML) \textbar{} Python Developer \textbar{} Competitive Programmer}
 
-\vspace{-4pt}
-\section{Summary}
-\begin{itemize}
-  \item Builds LLM-powered applications: integrated the \textbf{Anthropic Claude API} into a FastAPI backend (QuestBoard).
-  \item Strong algorithmic and mathematical base: ICPC Asia Dhaka Regional Rank 38 (2025), BUP IAUPC 2025 Champion, 1700+ problems solved.
-  \item AI/ML and backend industry training at JB Connect Ltd; Python automation and data tooling (scraping, reporting, scheduling).
-\end{itemize}
+CSE undergraduate at MIST building LLM-powered and data-driven software. Worked on a FastAPI application that
+integrates the \textbf{Anthropic Claude API}, trained in AI/ML at JB Connect Ltd, and writes Python tooling for
+scraping, reporting and scheduling. Brings a strong algorithmic and mathematical base from competitive programming
+and production engineering discipline as the \textbf{sole developer of a live finance platform}.
+
+\vspace{6pt}
+\highlights{4}{
+  \stat{Champion}{BUP IAUPC 2025} &
+  \stat{38th}{ICPC Asia Dhaka Regional 2025} &
+  \stat{1700+}{problems solved \textbullet{} CF Specialist} &
+  \stat{1722}{CodeChef max rating \textbullet{} 3-Star}
+}
 
 \section{Education}
-
 \entry{B.Sc. in Computer Science \& Engineering}{2023 -- 2027 (Expected)}
-{Military Institute of Science and Technology (MIST), Dhaka}
-{\small CGPA: \textbf{3.58 / 4.00} (up to Level-3, Term-2)}
-
-\entry{Higher Secondary Certificate (HSC)}{2022}
-{Govt.\ M.\,M.\ College, Jashore}
-{\small GPA: \textbf{5.00 / 5.00}}
+{Military Institute of Science and Technology (MIST), Dhaka \textbar{} CGPA \textbf{\upshape 3.58 / 4.00} (up to Level-3, Term-2)}{}
+\entry{Higher Secondary Certificate (HSC) \textmd{\color{gray}\small\textbar{} Govt.\ M.\,M.\ College, Jashore \textbar{} GPA 5.00 / 5.00}}{2022}{}{}
 
 \section{Technical Skills}
-\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{2.9cm} X @{}}
-Languages & Python, C++, Go, JavaScript, TypeScript, SQL, Bash \\
-AI / LLM & Anthropic Claude API, Vercel AI SDK (Google/OpenAI) \\
-Python & FastAPI, Pydantic, SQLAlchemy, requests, BeautifulSoup, Selenium, ReportLab, pytest \\
-Data \& DB & PostgreSQL (Neon, Supabase), MongoDB, Oracle Database, MySQL, web scraping, Codeforces API \\
+\begin{skills}
+Languages & Python, C++, Go, TypeScript, JavaScript, SQL, Bash \\
+AI / LLM & Anthropic Claude API, Vercel AI SDK (Google, OpenAI) \\
+Python & FastAPI, Pydantic, SQLAlchemy, requests, BeautifulSoup, Selenium, ReportLab, pytest, Ruff, Black \\
+Data & PostgreSQL (Neon, Supabase), MongoDB, Oracle, MySQL, web scraping, REST APIs (Codeforces API) \\
 Deployment & Docker, GitHub Actions, Vercel, Render, Sentry \\
-Core Concepts & Data Structures, Algorithms (Graph, DP, Segment Trees), OOP \\
-\end{tabularx}
+Core CS & Data structures, algorithms (graphs, DP, segment trees), OOP, system design \\
+\end{skills}
 
 \section{Projects}
-\entry{QuestBoard — Gamified Q\&A Platform for STEM Students}
-{\href{https://github.com/Ragib100/QuestBoard}{\small GitHub}}
-{Tech Stack: Python, FastAPI, Anthropic Claude API, Supabase (Postgres), SQLAlchemy, Flutter, Sentry}
+\entry{QuestBoard — Gamified Q\&A Platform for STEM Students \textmd{\color{gray}(Team)}}
+{\linkto{https://github.com/Ragib100/QuestBoard}{GitHub}}
+{Python, FastAPI, Pydantic, SQLAlchemy, Anthropic Claude API, Supabase (Postgres), Flutter, Sentry}
 {\begin{itemize}
-  \item Team project integrating the \textbf{Anthropic Claude API} into a FastAPI backend for a Q\&A platform where students post bounty-backed ``quests''.
-  \item Typed request/response models (Pydantic), point-ledger logic covered by pytest, CI with Ruff/Black on \textbf{GitHub Actions}.
+  \item Q\&A platform integrating the \textbf{Anthropic Claude API} into a FastAPI backend; students post ``quests'' with point bounties and accepted answers earn the points.
+  \item Typed request/response models (Pydantic), point-ledger economy covered by pytest, and GitHub Actions CI running Ruff, Black and pytest.
 \end{itemize}}
-\entry{Automation Tools — RankRaven, Upsolve Tracker, Faculty-Evaluation}
-{\href{https://github.com/saif-sakib}{\small GitHub}}
-{Tech Stack: Python, Selenium, BeautifulSoup, ReportLab, Google Apps Script, Codeforces API}
+\entry{Rank-Raven — Codeforces Contest Reporter \textmd{\color{gray}(Solo)}}
+{\linkto{https://github.com/saif-sakib/Rank-Raven}{GitHub}}
+{Python, Selenium, undetected-chromedriver, BeautifulSoup, requests, ReportLab}
 {\begin{itemize}
-  \item \textbf{RankRaven}: scrapes a Codeforces user list, aggregates 30-day contest solves via the CF API and generates styled multi-page PDF reports for club tracking.
-  \item \textbf{Upsolve Tracker}: Google Sheets + Apps Script tool that pulls near-miss Codeforces problems, schedules them, times solves and auto-detects AC.
+  \item Scrapes a Codeforces user list, counts each user's solves over the last 30 days via the Codeforces API, merges them with student levels and generates a styled multi-page \textbf{PDF report}.
 \end{itemize}}
-\entry{Hasnahena — Interest-Free Cooperative Finance Platform (Solo, Live)}
-{\href{https://hasnahenafoundation.com}{\small Live site}}
-{Tech Stack: Next.js, TypeScript, Go, PostgreSQL (Neon), Vercel, Render, Cloudflare}
+\entry{upsolve\_tracker — Codeforces Upsolve Planner \textmd{\color{gray}(Solo)}}
+{\linkto{https://github.com/saif-sakib/upsolve_tracker}{GitHub}}
+{Google Apps Script, Google Sheets, HTML Service, Codeforces API, clasp}
 {\begin{itemize}
-  \item Sole developer of a \textbf{live} production finance platform for a Jashore cooperative (since Aug 2026), with Go transactional ledger and daily reconciliation.
-  \item Tested end to end: property tests (400k iterations), Postgres integration tests, Playwright, load test at \textasciitilde180 postings/s.
+  \item Pulls near-miss problems, schedules them over the coming days, times solves and \textbf{detects AC automatically}; vjudge sync and a dashboard.
 \end{itemize}}
+\entry{Hasnahena — Interest-Free Cooperative Finance Platform \textmd{\color{gray}(Solo, in production)}}
+{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com}}
+{Next.js, TypeScript, Go, PostgreSQL (Neon), Vercel, Render, Cloudflare}
+{\begin{itemize}
+  \item Sole developer of a \textbf{live} finance platform for a Jashore cooperative (since Aug 2026) with a transactional Go ledger and daily reconciliation.
+  \item Verified with \textbf{400k-iteration} money property tests, a chi-square uniformity test of generated secrets, Postgres integration tests and a load test at \textbf{\textasciitilde180 postings/s}.
+\end{itemize}}
+
 \section{Experience \& Leadership}
-\entry{Industrial Trainee}{2026 (4 weeks)}
-{JB Connect Ltd (JBC)}
+\entry{Industrial Trainee, JB Connect Ltd (JBC)}{2026 \textbar{} 4 weeks}{}
 {\begin{itemize}
-  \item Industry sessions on \textbf{AI/ML}, backend and DevOps; worked on tasks with the company's teams.
-  \item Team project on \textbf{content automation}: \href{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.
+  \item Industry sessions on \textbf{AI/ML}, backend and DevOps, working on tasks with company teams; group project \linkto{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.
 \end{itemize}}
-\noindent\textbf{President}, MIST Computer Club (Jun 2026 -- Present): 15+ core members, 10+ events/year, ICPC camps for 200+ students. \textbf{CP Instructor} (May 2024 -- Present): mentoring 50+ students. Earlier: Vice President (2025--26), Executive Member (2024--25).
-\vspace{3pt}
+\entry{President, MIST Computer Club}{Jun 2026 -- Present}
+{Vice President (May 2025 -- Jun 2026) \textbar{} Executive Member (May 2024 -- May 2025)}
+{\begin{itemize}
+  \item Lead strategy and mentor \textbf{15+ core members} delivering \textbf{10+ technical events a year}; direct ICPC camps and workshops reaching \textbf{200+ students}.
+\end{itemize}}
+\entry{Competitive Programming Instructor, MIST Computer Club}{May 2024 -- Present}{}
+{\begin{itemize}
+  \item Mentor \textbf{50+ junior students} in algorithms with an \textbf{80\% retention rate}; curated 20+ problem sets and mock contests.
+\end{itemize}}
 
 \section{Competitive Programming}
-\small
-Codeforces \textbf{Specialist} (Max 1514) $\cdot$ CodeChef \textbf{3-Star} (Max 1722) $\cdot$ 1700+ problems solved \\
-\textbf{Champion}, BUP IAUPC 2025 $\cdot$ \textbf{Rank 38}, ICPC Asia Dhaka Regional 2025 $\cdot$ \textbf{Rank 117}, ICPC Dhaka Regional 2024 $\cdot$ \textbf{Rank 16}, DUET IUPC 2025 $\cdot$ Meta Hacker Cup 2024 Round 2
-\normalsize
+{\small \textbf{Codeforces} Specialist (max 1514) \textbar{} \textbf{CodeChef} 3-Star (max 1722) \textbar{} \textbf{1700+} problems solved on 5 online judges}
+\begin{results}
+BUP IAUPC 2025 & \rk{Champion} & ICPC Asia Dhaka Regional 2024 \textit{\color{gray}(univ.\ teams)} & \rk{117th} \\
+ICPC Asia Dhaka Regional 2025 \textit{\color{gray}(univ.\ teams)} & \rk{38th} & Meta Hacker Cup 2024 & \rk{Round 2} \\
+\end{results}
 
 \end{document}
