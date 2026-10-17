@@ -1,0 +1,33 @@
+---
+import type { Result } from '../data/profile';
+
+interface Props {
+  rows: Result[];
+}
+const { rows } = Astro.props;
+---
+
+<table class="results-table">
+  <thead>
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col">Contest</th>
+      <th scope="col">When</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((r) => (
+      <tr class:list={[{ hl: r.highlight }]}>
+        <td class="rank">
+          {r.rank}
+          {r.of && <span class="of">/ {r.of}</span>}
+        </td>
+        <td>
+          <span class="contest">{r.contest}</span>
+          <span class="team">{r.team}{r.note && <> · {r.note}</>}</span>
+        </td>
+        <td class="when">{r.date}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>

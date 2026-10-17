@@ -1,0 +1,134 @@
+%──────────────────────────────────────────────────────────────
+%  CV — Md Saif Ahmed (DevOps)
+%  Clean, single-column, ATS-friendly. Facts sourced from contents.txt
+%──────────────────────────────────────────────────────────────
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e}
+\raggedbottom
+\pagenumbering{gobble}
+
+\definecolor{accent}{HTML}{0B5394}
+\definecolor{dark}{HTML}{111827}
+\definecolor{gray}{HTML}{4B5563}
+\definecolor{lightgray}{HTML}{E5E7EB}
+\definecolor{ACCENT}{HTML}{0B5394}   % uppercase twins: \uppercase in section titles
+\definecolor{LIGHTGRAY}{HTML}{E5E7EB}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent, pdfborder={0 0 0}}
+
+\titleformat{\section}
+  {\large\bfseries\color{accent}\uppercase}
+  {}{0em}{}
+  [\vspace{3pt}{\color{lightgray}\hrule height 0.6pt}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\setlist[itemize]{leftmargin=12pt, itemsep=0pt, parsep=0pt, topsep=1pt,
+  label=\textcolor{accent}{\small\textbullet}}
+
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1}\hfill{\small\color{gray}\textbf{#2}}\\[0pt]
+  {\small\itshape #3}\par\vspace{0pt}
+  \noindent #4\par\vspace{2pt}
+}
+
+\begin{document}
+
+\begin{center}
+  {\huge\bfseries\color{dark} Md Saif Ahmed}\\\vspace{4pt}
+  {\small\color{gray} DevOps \& Cloud Engineer $\cdot$ Backend Developer $\cdot$ Competitive Programmer}
+  \\\vspace{6pt}
+  \small
+  \href{mailto:saifahmedsakib@gmail.com}{saifahmedsakib@gmail.com} $\cdot$
+  +880\,1701-667488 $\cdot$
+  \href{https://github.com/saif-sakib}{github.com/saif-sakib} $\cdot$
+  \href{https://codeforces.com/profile/Saif_Ahmed008}{Codeforces: Saif\_Ahmed008} $\cdot$
+  \href{https://www.linkedin.com/in/saif-ahmed-8a14651b0}{LinkedIn}
+\end{center}
+
+\vspace{-4pt}
+\section{Summary}
+\begin{itemize}
+  \item Solo builder and operator of a \textbf{live} finance platform on \textbf{Vercel}, \textbf{Render}, \textbf{Neon} and \textbf{Cloudflare}.
+  \item Builds CI/CD with \textbf{GitHub Actions} (lint, test, build, SSH deploy) and containerized stacks with \textbf{Docker Compose}.
+  \item Observability (\textbf{Sentry}, \textbf{UptimeRobot}, \textbf{Prometheus}), encrypted backups with restore drills; DevOps training at JBC.
+\end{itemize}
+
+\section{Education}
+
+\entry{B.Sc. in Computer Science \& Engineering}{2023 -- 2027 (Expected)}
+{Military Institute of Science and Technology (MIST), Dhaka}
+{\small CGPA: \textbf{3.58 / 4.00} (up to Level-3, Term-2)}
+
+\entry{Higher Secondary Certificate (HSC)}{2022}
+{Govt.\ M.\,M.\ College, Jashore}
+{\small GPA: \textbf{5.00 / 5.00}}
+
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{2.9cm} X @{}}
+Cloud \& Hosting & Vercel, Render, Neon (serverless Postgres), Cloudflare (DNS, R2, Workers), Cloudinary, Supabase, Linux VMs \\
+CI/CD & GitHub Actions (CI, CD, scheduled jobs), GHCR, Dependabot, gitleaks, Git hooks, pnpm monorepo \\
+Containers & Docker, Docker Compose \\
+Monitoring & Sentry, UptimeRobot, Prometheus metrics; backups + restore drills (RPO/RTO) \\
+OS \& Scripting & Linux (Arch/Ubuntu), Bash, Python, Go \\
+Backend & Go (chi, pgx), Node.js, Express.js, FastAPI, Bun, Hono, REST APIs, JWT \\
+Databases & PostgreSQL, MongoDB, Oracle Database, MySQL \\
+Quality & Playwright, Go tests (-race, load), pytest, golangci-lint, Ruff, ESLint \\
+\end{tabularx}
+
+\section{Projects}
+\entry{Hasnahena — Interest-Free Cooperative Finance Platform (Solo, Live)}
+{\href{https://hasnahenafoundation.com}{\small Live site}}
+{Infra: Vercel, Render, Neon Postgres, Cloudflare (DNS, R2, Workers), Cloudinary, Brevo, GHCR, Sentry, UptimeRobot, Prometheus}
+{\begin{itemize}
+  \item Build, deploy and operate a \textbf{live} finance platform serving real members since Aug 2026 (Next.js on \textbf{Vercel}, Go API on \textbf{Render}, \textbf{Neon} Postgres behind \textbf{Cloudflare}).
+  \item \textbf{GitHub Actions}: change-detected CI (lint, Go tests under \texttt{-race}, Playwright, gitleaks), Docker images to \textbf{GHCR}, scheduled monitor jobs.
+  \item Daily encrypted backups to \textbf{Cloudflare R2} with restore drills in CI (RPO 24\,h, RTO \textless 1\,h); \textbf{Sentry}, \textbf{UptimeRobot} (1-min) and \textbf{Prometheus} ledger-drift metrics.
+  \item Wrote runbooks, 45 ADRs and a capacity plan from measured free-tier limits (runs at \$0 today).
+\end{itemize}}
+\entry{QuestBoard — Gamified Q\&A Platform}
+{\href{https://github.com/Ragib100/QuestBoard}{\small GitHub}}
+{Tech Stack: FastAPI, Flutter, Supabase, Sentry, GitHub Actions, Vercel}
+{\begin{itemize}
+  \item Team project with a multi-job \textbf{GitHub Actions} CI pipeline: server lint/format (Ruff, Black), server tests (pytest), and Flutter analyze, test and web-build checks.
+  \item Error monitoring with \textbf{Sentry}; client deployed on \textbf{Vercel}; managed Postgres, Auth and Storage on \textbf{Supabase}.
+\end{itemize}}
+\entry{HallBridge — Digital Hall Management System}
+{\href{https://github.com/Ragib100/HallBridge}{\small GitHub}}
+{Tech Stack: Next.js, TypeScript, MongoDB, Express, GitHub Actions, Linux VM}
+{\begin{itemize}
+  \item Hall management platform for \textbf{500+ residents}; separate Express email microservice (Resend/Nodemailer).
+  \item \textbf{GitHub Actions} CD pipeline deploys the email service to a Linux VM over SSH on every push.
+\end{itemize}}
+\entry{MCC Website — MIST Computer Club Platform (Team, In Production)}
+{\href{https://github.com/istiaqueahmedarik/mcc_website}{\small GitHub}}
+{Tech Stack: Next.js, Bun, Hono, PostgreSQL, Supabase, Docker Compose, GitHub Actions}
+{\begin{itemize}
+  \item Contributor to the club's live platform: Next.js frontend, Bun/Hono API and a Discord bot, containerized with \textbf{Docker Compose} and deployed via \textbf{GitHub Actions}.
+\end{itemize}}
+\section{Experience \& Leadership}
+\entry{Industrial Trainee}{2026 (4 weeks)}
+{JB Connect Ltd (JBC)}
+{\begin{itemize}
+  \item Hands-on sessions on \textbf{DevOps}, backend engineering and AI/ML; worked on tasks with production teams.
+  \item Team project: \href{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.
+\end{itemize}}
+\noindent\textbf{President}, MIST Computer Club (Jun 2026 -- Present): 15+ core members, 10+ events/year, ICPC camps for 200+ students. \textbf{CP Instructor} (May 2024 -- Present): mentoring 50+ students. Earlier: Vice President (2025--26), Executive Member (2024--25).
+\vspace{3pt}
+
+\section{Competitive Programming}
+\small
+Codeforces \textbf{Specialist} (Max 1514) $\cdot$ CodeChef \textbf{3-Star} (Max 1722) $\cdot$ 1700+ problems solved \\
+\textbf{Champion}, BUP IAUPC 2025 $\cdot$ \textbf{Rank 38}, ICPC Asia Dhaka Regional 2025 $\cdot$ \textbf{Rank 117}, ICPC Dhaka Regional 2024 $\cdot$ \textbf{Rank 16}, DUET IUPC 2025 $\cdot$ Meta Hacker Cup 2024 Round 2
+\normalsize
+
+\end{document}

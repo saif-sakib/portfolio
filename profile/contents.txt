@@ -1,0 +1,408 @@
+================================================================
+ MASTER PROFILE — Md Saif Ahmed
+ Single source of truth for CVs and portfolio. Raw, complete facts.
+ Never delete entries; mark outdated values instead.
+ Last organized: 2026-10-16
+================================================================
+
+----------------------------------------------------------------
+1. PERSONAL / CONTACT
+----------------------------------------------------------------
+Name:        Md Saif Ahmed
+Email:       saifahmedsakib@gmail.com
+Phone:       +880 1701-667488
+GitHub:      https://github.com/saif-sakib
+Codeforces:  https://codeforces.com/profile/Saif_Ahmed008
+LinkedIn:    https://www.linkedin.com/in/saif-ahmed-8a14651b0
+TryHackMe:   AhmedSakib
+
+Headlines used in CVs:
+- Software Engineer · Competitive Programmer · Cybersecurity Practitioner (General CV)
+- Software Engineer · Full-Stack Developer · Competitive Programmer (SWE CV)
+- Cybersecurity Practitioner · Web Security Instructor · Competitive Programmer (Cyber CV)
+
+----------------------------------------------------------------
+2. EDUCATION
+----------------------------------------------------------------
+B.Sc. in Computer Science & Engineering — Military Institute of Science and Technology (MIST), Dhaka
+- 2023 – 2027 (Expected)
+- CGPA: 3.58 / 4.00 (up to Level-3, Term-2)
+
+Higher Secondary Certificate (HSC) — Govt. M. M. College, Jashore
+- 2022
+- GPA: 5.00 / 5.00
+
+----------------------------------------------------------------
+3. COMPETITIVE PROGRAMMING
+----------------------------------------------------------------
+Profiles:
+- Codeforces — Specialist (Max 1514)   <-- CURRENT
+- CodeChef — 3-Star (Max 1722)
+- Solved 1700+ problems across Codeforces, CodeChef, LeetCode, CSES, AtCoder
+
+Contest results (my teams only). "Official" = rank as listed on the
+standings page (Toph / BAPS OJ), verified 2026-10-16.
+"Excluding BDOI" = my rank counting only university teams.
+
+--- ICPC Asia Dhaka Regional ---
+
+ICPC Dhaka Regional 2024 — Online Preliminary (9 Nov 2024, BAPS OJ)
+Team: MIST_ChemistryHaters
+Rank: 90th of 2490 teams (7 solved)
+
+ICPC Asia Dhaka Regional 2024 — Onsite (7 Dec 2024, hosted by DIU)
+Team: MIST_ChemistryHaters
+Rank: 117th (Excluding BDOI team) — official standings: 118th of 310 (3 solved)
+
+ICPC Dhaka Regional 2025 — Online Preliminary (15 Nov 2025, hosted by BUBT)
+Team: MIST_EagleForces
+Rank: 290th of 1842 teams (3 solved)
+
+ICPC Asia Dhaka Regional 2025 — Onsite (20 Dec 2025, hosted by BUBT)
+Team: MIST_EagleForces
+Rank: 38th (Excluding BDOI team) — official standings: 39th of 313 (4 solved)
+
+--- Inter University Programming Contests (IUPC) ---
+
+KUET Inter University Programming Contest 2025 (MIAKI presents, Onsite, 4 Jan 2025)
+Team: MIST_AlgorithmReject (on standings: MIST_Algorithm_Reject)
+Rank: 88th — official standings: 89th of 161 (2 solved)
+[NOTE: rank in my notes = 88th; standings show 89. Double-check before using.]
+
+UIU Inter University Programming Contest 2025 (18 Jan 2025)
+Team: MIST_AlgorithmRejects
+Rank: 43rd of 161 (4 solved)
+[NOTE: CVs list this as "UIU IUPC 2024" — the contest was held Jan 2025 and titled 2025.]
+
+MTB Presents AUST Inter University Programming Contest 2025 (Feb 2025)
+Team: MIST_AlgorithmRejects
+Rank: 48th of 129 (4 solved)
+
+Betopia Group Presents DUET Inter University Programming Contest (IUPC) 2025
+Team: MIST_ShuRZo
+Rank: 16th of 137 (6 solved)
+
+Uttara University Inter-University Programming Contest 2025 (Jun 2025)
+Team: MIST_EagleForces
+Rank: 54th of 122 (5 solved)
+
+BUP Programming Contest Powered by Brain Station 23 PLC, DSI Presents BUP CSE Tech Carnival 2025
+(Called "BUP IAUPC 2025" in CVs)
+Team: MIST_EagleForces
+Rank: Champion (1st of 28, 6 solved)
+
+Inter University Programming Contest - MU CSE Fest 2025
+Team: MIST_EagleForces
+Rank: 49th of 99 (2 solved)
+
+CUET Inter University Programming Contest (IUPC) 2025
+Team: MIST_EagleForces
+Rank: 28th of 131 (5 solved)
+
+NDUB Inter University Programming Contest (IUPC) 2026 (Powered by Shohoj Coding)
+Team: MIST_EaglesClaw
+Rank: 32nd of 85 (3 solved)
+
+DUET Inter University Programming Contest (IUPC) 2026
+Team: MIST_Jackdaw
+Rank: 24th of 139 (7 solved)
+
+bKash presents SUST CSE Carnival 2026 — Inter University Programming Contest
+Team: MIST_Jackdaw
+Rank: 44th of 137 (4 solved)
+
+IUT 12th ICT Fest Inter University Programming Contest 2026
+Team: MIST_Jackdaw
+Rank: 46th of 111 (5 solved)
+
+NSUCEC Cybernauts IUPC 2026 (12 Jun 2026, BAPS OJ)
+Team: MIST_EaglesClaw
+Rank: 16th of 159 (4 solved)
+
+--- Other ---
+
+Meta Hacker Cup 2024
+Progress: Participated in / advanced to Round 2
+
+----------------------------------------------------------------
+4. CYBERSECURITY
+----------------------------------------------------------------
+CTF results:
+
+BUET CTF 2024 – Final Round
+Team: MIST_Hacker_Vab_Skill_r_Ovab
+Rank: 18th
+
+SMP CTF 2024
+Team: MIST_Shaheed_Yamin_Forever
+Rank: 13th
+
+Cyber Raid 2025 – Final Round
+Team: MIST_Shaheed_Yamin_Forever
+Rank: 18th
+
+BCS ICT Fest CTF 2025
+Team: MIST_Shaheed_Yamin_Forever
+Rank: 18th
+
+Cyber Drill 2025 / World Telecommunication and Information Society Day (WTISD) Hackathon 2025
+Team: MIST_Shaheed_Yamin_Forever
+Rank: 5th
+
+Bugcrowd USA CTF 2025
+Team: MSYF2.0
+Rank: 34th (Globally)
+
+DIU Cybercon CTF 2025 – Final Round
+Team: MSYF2.0
+Rank: 18th
+
+BUP CTF (2025)
+Team: MSYF2.0
+Rank: 18th
+
+Certifications & training:
+1. eShikhon Ethical Hacking Live Course
+2. Hands-on Ethical Hacking and Security Analysis — issued by MIST Cyber Security Club
+3. PortSwigger Academy: 70+ labs completed across 10+ web security categories
+4. TryHackMe: 29 rooms completed (Handle: AhmedSakib)
+5. CTF platforms: OverTheWire Natas series, PicoCTF (67+ challenges solved)
+
+----------------------------------------------------------------
+5. LEADERSHIP & ROLES
+----------------------------------------------------------------
+MIST Computer Club (MCC):
+- President (June 2026 – Present)
+  CV bullets: Leading club strategy and mentoring 15+ core members to deliver 10+ technical
+  events annually; directing ICPC preparation camps and workshops impacting 200+ students.
+- Vice President (May 2025 – June 2026)
+  CV bullets: Coordinated programming workshops and contest initiatives with cross-team
+  collaboration; supported event operations and training programs for junior members.
+- Executive Member (May 2024 – May 2025)
+  CV bullets: Contributed to event logistics and community training activities.
+- Competitive Programming Instructor (May 2024 – Present)
+  CV bullets: Mentoring 50+ junior students in algorithms and contest strategy, maintaining
+  80% retention rate; curated 20+ problem sets and mock contests, contributing to teams
+  advancing in ICPC preliminary rounds.
+
+MIST Cyber Security Club (MCSC):
+- Web Security Instructor (May 2024 – June 2026)   [CVs still say "2024 – Present"]
+  CV bullets: Hands-on workshops on OWASP Top 10 vulnerabilities and real-world exploitation
+  scenarios; trained 30+ students in penetration testing methodologies and secure coding.
+- Associative Member (May 2024 – June 2025)
+
+Mentor Committee:
+- Executive Director (June 2025 – June 2026)   [CVs still say "2025 – Present"]
+  CV bullets: Coordinating (security) mentoring initiatives and learning tracks.
+
+----------------------------------------------------------------
+6. EXPERIENCE / TRAINING
+----------------------------------------------------------------
+Industrial Training at JBC (JB Connect Ltd) — 4 weeks (2026)
+- Learned many industry practices; attended sessions on DevOps, backend, AI/ML;
+  did tasks with teams of the office.
+- Group project: https://github.com/JB-Connect-Ltd/content-automation-202605
+
+----------------------------------------------------------------
+7. PROJECTS
+----------------------------------------------------------------
+LocalFix — Civic Engagement Platform (Group project, academic)
+https://github.com/saif-sakib/LocalFix
+Stack: React, Node.js, Express.js, Oracle Database
+Full stack (from repo): React (Vite), React Router, React Hook Form, Axios, Recharts, Mapbox GL +
+  Mapbox Directions | Express, oracledb, JWT, bcryptjs, Helmet, express-rate-limit,
+  express-validator, Multer (uploads), Nodemailer, cookie-parser, CORS | ESLint, Nodemon
+Team: Md Saif Ahmed, Md Shihab Ahmed, Md Ragib Hossain, Md Arafat Hasan, Md Saifuddin Shawon
+- Digital complaint management system for citizens to report civic issues (roads, waste) to authorities.
+- Role-Based Access Control (RBAC); optimized Oracle SQL queries, reducing data retrieval latency by 40%.
+
+HallBridge — Digital Hall Management System (Group project, academic)
+https://github.com/Ragib100/HallBridge
+Stack: Next.js, TypeScript, MongoDB, Tailwind CSS, Supabase
+Full stack (from repo): Next.js 16, React 19, TypeScript, Tailwind CSS 4, MUI, Radix UI, Mongoose,
+  Supabase, Resend + Nodemailer (separate Express email server), jsPDF (PDF reports), Recharts,
+  sanitize-html, express-rate-limit, bcrypt | GitHub Actions CI/CD deploying the email server to a VM over SSH
+- Three roles (Students, Staff with sub-roles, Admins) with dedicated dashboards.
+- Digitized seat allocation, billing and notices for 500+ residents.
+- Smart dining manager with predictive meal planning, reducing food wastage to near-zero.
+
+GyanTori — Peer-to-Peer Book Sharing (Group project, academic)
+https://github.com/saif-sakib/GyanTori
+Stack: Java, JavaFX, MongoDB
+Full stack (from repo): Java, JavaFX (FXML), Maven, MongoDB Java driver, Jackson, Jakarta JSON, SLF4J
+- Desktop virtual library for 500+ students to lend, borrow and catalog books.
+- MongoDB schema for inventory relationships and transaction history.
+
+QuestBoard (Group project, academic)
+https://github.com/Ragib100/QuestBoard
+Gamified Q&A app for STEM students: post a "quest" with a point bounty; the accepted answer's author gets the points.
+Stack: Flutter (mobile + web) | FastAPI, Uvicorn, Pydantic, SQLAlchemy, psycopg | Supabase (Postgres,
+  Auth, Storage) | JWT | Sentry | Anthropic Claude API | pytest, Ruff, Black | GitHub Actions CI
+  (lint + format, Flutter analyze/test/web build, server tests) | Vercel (client)
+- Point ledger / economy logic with tests; documented API, architecture and DB schema.
+
+hasnahena (Only me as developer — in production)
+https://github.com/saif-sakib/hasnahena   (private repo)
+Live: https://hasnahenafoundation.com   (MIT licensed; solo project by Md Saif Ahmed)
+Stack / infra (from my notes): PostgreSQL on Neon, Vercel, Render, Cloudflare, Cloudinary (media),
+  Sentry (error monitoring), UptimeRobot (uptime monitoring), GitHub Actions (CI/CD)
+
+What it is (from repo, read 2026-10-16):
+- Interest-free cooperative finance platform (Qard al-Hasan) that digitises the passbook of
+  Hasnahena Foundation, a community-run interest-free cooperative in Jessore (Jashore), Bangladesh.
+- LIVE with real members since cutover on 2026-08-27 (real people, balances and identity documents).
+- Timeline: first commit 2026-03-22; 235 commits (≈220 mine + Dependabot) as of 2026-10-16.
+- Three roles: Members (register online with NID + nominee, deposits/withdrawals, repayment requests,
+  donations, confirm or dispute every posting), Workers (process member requests, record disbursements
+  and installments — never move money on their own), Admins (approve registrations and loans, resolve
+  disputes, configure policy, run default settlement). Loans with guarantors.
+- Fully bilingual English / Bengali (next-intl).
+- Official documents generated as vector PDFs: statements, receipts, loan agreements, certificates.
+- Support chat with Server-Sent Events (SSE).
+
+Architecture:
+- pnpm monorepo: apps/web (Next.js) + apps/api (Go).
+- Next.js 16 (App Router, React 19, TypeScript, Tailwind 4, shadcn/ui, next-intl 4) on Vercel:
+  marketing pages (prerendered), registration intake, content, settings; Prisma 5.
+- Go 1.25 API (chi router, pgx) on Render owns every balance-changing write: auth, dashboards,
+  deposits, withdrawals, loans, repayments, donations, approvals, reports.
+- PostgreSQL on Neon (19 Prisma models, 15 migrations; Prisma Migrate). Brevo for email, Cloudinary for media.
+- Cloudflare: DNS (proxied apex/www/api), TLS, Email Routing, R2 (off-site backups), Worker warm-up cron.
+- Size: 81 Go files (45 test files), 288 TS/TSX files (63 unit/route test files), 16 Playwright e2e specs.
+
+Security:
+- RBAC on every protected endpoint; bcrypt; self-hosted JWT with server-side revocation checked by BOTH
+  backends; every session revoked on password change/reset/deactivation.
+- Rate limiting + login lockout keyed on a single client-address resolver (Cloudflare-aware) / verified member.
+- Append-only audit logs enforced by a database trigger; single-transaction atomicity for all financial writes.
+- Two Content Security Policies per route type; CI asserts zero CSP violations.
+- Anti-enumeration: auth endpoints answer identically regardless of who is asked about.
+- gitleaks secret scanning over full git history in CI; golangci-lint; Dependabot.
+
+Reliability / ops:
+- Daily ledger reconciliation job (reports drift, never auto-repairs); Prometheus metrics (/metrics,
+  e.g. ledger drift rows).
+- Monitoring: Sentry (both apps), UptimeRobot on /v1/health every 1 min (+ site every 5 min),
+  scheduled GitHub Actions "Monitor" workflow checking business thresholds twice daily.
+- Backups: daily (and monthly) encrypted Postgres dump + Cloudinary asset copy via GitHub Actions,
+  shipped off-site to Cloudflare R2; restore drill in CI. RPO 24 h, RTO under 1 h
+  (58 MB / 200k transactions: dump 1 s, restore + verify 2 s).
+- Docker images built and pushed to GitHub Container Registry (GHCR) with entrypoint and
+  no-secrets-in-image checks; Docker Compose for local Postgres.
+- Git pre-push hooks replicate CI/Vercel checks locally.
+- Capacity planning doc (scaling.md): measured free-tier limits; ~15,000 members ≈ 10 req/s peak;
+  first wall is Neon 0.5 GB at ~6,000 members (~$7/mo). Runs entirely on free tiers today.
+
+Testing (CI on GitHub Actions, change-detected jobs):
+- Web typecheck + lint; Go vet/build/unit tests; Go integration tests against real Postgres under -race;
+  Playwright browser tests on a phone viewport (phone/desktop × en/bn matrix, accessibility).
+- Money arithmetic property tests (400k iterations); chi-square uniformity test of generated secrets;
+  load test sustaining ~180 postings/s with six writers on contended accounts, reconciling exactly.
+- Bundle-size budget per route; migration drift check (migrated DB matches schema.prisma).
+
+Documentation:
+- 45 Architecture Decision Records (ADRs), 24 "trap" post-mortems, runbook, deployment, scaling,
+  data model, API, testing and workflow docs.
+
+[TODO: number of live members / transactions, if you want to publish it]
+
+MCC Website (Group — in production)
+https://github.com/istiaqueahmedarik/mcc_website
+Stack (from repo): Next.js, React, Tailwind CSS, shadcn/Radix UI, TanStack Query, Plate rich-text
+  editor, CodeMirror (C++/Python), KaTeX, tldraw, Three.js, Framer Motion/GSAP, Vercel AI SDK
+  (Google/OpenAI), UploadThing, Supabase | Bun + Hono backend, PostgreSQL, JWT, Nodemailer,
+  Discord bot (discord.js), Cheerio scraping | Docker + Docker Compose (frontend, backend, bot),
+  GitHub Actions (deploy + pull-request workflows)
+[TODO: note my own part in this project]
+
+BruteBuddy — Automated Security Testing Tool (Script)
+https://github.com/saif-sakib/Brute-Buddy
+Stack: Python, multi-threading, CLI
+Full stack (from repo): Python 3.10+, requests, ThreadPoolExecutor; multi-field payloads, generated
+  values, zip/product combinations, custom headers/cookies, automatic re-authentication
+- CLI tool for automated fuzzing and brute-force testing of login endpoints.
+- ThreadPoolExecutor parallel requests, 3x faster execution.
+
+Faculty-Evaluation (Script)
+https://github.com/saif-sakib/Faculty-Evaluation
+Stack: Python, Selenium, webdriver-manager — automates the faculty evaluation form (with a step-by-step Windows guide)
+
+Rank-Raven (Script)
+https://github.com/saif-sakib/Rank-Raven
+Codeforces contest reporter: scrapes a CF user list, counts each user's solves over the last 30 days through the
+  Codeforces API, merges with student levels and generates a styled multi-page PDF report.
+Stack: Python, Selenium, undetected-chromedriver, BeautifulSoup, requests, ReportLab, logging
+
+upsolve_tracker (App Script)
+https://github.com/saif-sakib/upsolve_tracker
+Codeforces upsolve tracker: pulls near-miss problems (Div. 2 / Div. 1+2 / Educational, C and D), schedules
+  them over the coming days, times your solves and detects AC automatically; vjudge sync; dashboard.
+Stack: Google Apps Script, Google Sheets, HTML Service, Codeforces API, clasp
+
+Code-Library — MIST_EagleForces ICPC Team Notebook
+https://github.com/saif-sakib/Code-Library
+ICPC team notebook (code snippets + math notes) with a Python build script that generates the PDF.
+Stack: C++, LaTeX (pdflatex), Python, Pygments
+
+JBC content-automation (Group, industrial training)
+https://github.com/JB-Connect-Ltd/content-automation-202605
+
+----------------------------------------------------------------
+8. HACKATHONS
+----------------------------------------------------------------
+- MIST Intra Hackathon 2025
+- BUP CSE Fest 2026 Hackathon — onsite participant
+
+----------------------------------------------------------------
+9. TECHNICAL SKILLS
+----------------------------------------------------------------
+(Original CV list — kept as is)
+Languages:      C++ (primary), Python, JavaScript, TypeScript, Java, SQL, Bash
+Frontend:       Next.js, React.js, Tailwind CSS, HTML5, CSS3, JavaFX
+Backend:        Node.js, Express.js, REST APIs, JWT, Supabase
+Databases:      MySQL, MongoDB, Oracle Database
+Core Concepts:  Data Structures, Algorithms (Graph, DP, Segment Trees), OOP, System Design, OWASP Top 10
+Security:       Web Application Security, Penetration Testing, Cryptography, Network Security
+Tools & DevOps: Git, GitHub, Linux (Arch/Ubuntu), Docker, Burp Suite, Postman, Packet Tracer, Wireshark
+
+(Full inventory — everything I've used, with where. Pick from this per job.)
+Languages:        C++, Go, Python, JavaScript, TypeScript, Java, Dart (Flutter), SQL, Bash, Google Apps Script, LaTeX
+Go:               chi, pgx, golang-jwt, Prometheus client, sentry-go, golangci-lint, race detector (Hasnahena)
+ORM / data:       Prisma (Migrate), SQLAlchemy, Mongoose, pgx; DB triggers, CHECK constraints, transactions
+i18n:             next-intl (English/Bengali)
+Frontend:         React, Next.js, Vite, Tailwind CSS, shadcn/ui, Radix UI, MUI, React Router, React Hook Form,
+                  TanStack Query, Recharts, Mapbox GL, Framer Motion, HTML5, CSS3
+Mobile/Desktop:   Flutter (QuestBoard), JavaFX + Maven (GyanTori)
+Backend:          Node.js, Express.js, FastAPI, Uvicorn, Pydantic, SQLAlchemy, Bun, Hono, REST APIs
+Auth & security:  JWT, bcrypt, RBAC, Helmet, rate limiting (express-rate-limit), input validation
+                  (express-validator), HTML sanitization (sanitize-html), Supabase Auth
+Databases:        PostgreSQL (Neon, Supabase), MongoDB (Mongoose), Oracle Database, MySQL
+Cloud & hosting:  Vercel, Render, Neon, Supabase, Cloudflare (DNS, R2, Workers, Email Routing), Cloudinary,
+                  Linux VM deployment over SSH
+CI/CD & DevOps:   GitHub Actions (CI: lint/test/build; CD: deploy; scheduled backup/monitor jobs), Docker,
+                  Docker Compose, GHCR, pnpm workspaces (monorepo), Git hooks, Dependabot, Git/GitHub
+Monitoring:       Sentry (error tracking), UptimeRobot (uptime monitoring), Prometheus metrics, structured logging
+Backup & DR:      encrypted pg_dump backups to Cloudflare R2, restore drills in CI, RPO/RTO planning
+Email & media:    Brevo, Resend, Nodemailer, Cloudinary, Multer, UploadThing, jsPDF, ReportLab (PDF generation)
+AI/LLM:           Anthropic Claude API (QuestBoard), Vercel AI SDK with Google/OpenAI (MCC website)
+Testing/quality:  Playwright (e2e), Vitest, Go testing (unit, integration, property, load), pytest, Ruff, Black,
+                  ESLint, golangci-lint, Flutter analyze/test
+Security (dev):   gitleaks (secret scanning), CSP, token revocation, audit logs, anti-enumeration
+Practices:        Architecture Decision Records (ADRs), runbooks, post-mortems, capacity planning
+Automation:       Selenium, undetected-chromedriver, BeautifulSoup, Cheerio, requests, Codeforces API, clasp
+Security tools:   Burp Suite, Wireshark, Packet Tracer, PortSwigger labs, TryHackMe, own tool BruteBuddy
+Other tools:      Postman, Linux (Arch/Ubuntu), Discord bots (discord.js)
+[TODO: add anything else used at JBC]
+
+----------------------------------------------------------------
+10. CV SUMMARY LINES (reusable)
+----------------------------------------------------------------
+- Competitive programmer with a Champion finish at BUP IAUPC 2025 and ICPC Asia Dhaka Regional ranks (38th in 2025, 117th in 2024).
+- Built full-stack systems using React/Next.js, Node.js, and MongoDB/Oracle to solve real campus and civic problems.
+- Cybersecurity practitioner and instructor focused on OWASP Top 10, penetration testing, and CTFs (Rank 5 in Cyber Drill 2025).
+- Full-stack developer building React/Next.js + Node.js systems with SQL/NoSQL backends (LocalFix, HallBridge, GyanTori).
+- Implemented RBAC and Oracle query optimizations that reduced data retrieval latency by 40%.
+- Led student teams and mentoring programs as MCC President and competitive programming instructor.
+- Built security tooling (BruteBuddy) and applied secure design patterns like RBAC in production-style projects.
+- CTF competitor with Rank 5 in Cyber Drill 2025 and multiple finals placements (BCS ICT Fest, Cyber Raid, BUET CTF).
+- Web Security instructor delivering OWASP Top 10 and penetration testing workshops; active in security mentoring.

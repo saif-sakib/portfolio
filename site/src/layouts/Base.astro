@@ -1,0 +1,173 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { person, links, cvs } from '../data/profile';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = `${person.name} — Software Engineer`,
+  description = `${person.name}: ${person.headline}. ${person.intro}`,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
+
+const nav = [
+  { href: '#about', label: 'About' },
+  { href: '#work', label: 'Work' },
+  { href: '#competitive', label: 'Competitive' },
+  { href: '#security', label: 'Security' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#contact', label: 'Contact' },
+];
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={person.name} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
+    />
+
+    <!-- Apply the saved theme before first paint to avoid a flash. -->
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') d.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href={base} aria-label={`${person.name}, home`}>
+          <span class="monogram">SA</span>
+          <span class="brand-name">{person.name}</span>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <ul id="nav-list">
+            {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+          </ul>
+        </nav>
+
+        <div class="topbar-actions">
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+            <Icon name="moon" class="i-moon" />
+            <Icon name="sun" class="i-sun" />
+          </button>
+          <a class="btn btn-small" href={`${base}cv/${primaryCv.file}`} target="_blank" rel="noopener">
+            Résumé
+          </a>
+          <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-list">
+            <Icon name="menu" />
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© {year} {person.name}</p>
+        <p class="footer-links">
+          <a href={`mailto:${links.email}`}>Email</a>
+          <a href={links.github} target="_blank" rel="noopener">GitHub</a>
+          <a href={links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+          <a href={links.codeforces} target="_blank" rel="noopener">Codeforces</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const root = document.documentElement;
+
+      // Theme toggle: an explicit choice is remembered; otherwise follow the OS.
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const current =
+          root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem('theme', next);
+        } catch {}
+      });
+
+      // Mobile menu.
+      const menuBtn = document.getElementById('menu-toggle');
+      const navList = document.getElementById('nav-list');
+      const setMenu = (open: boolean) => {
+        navList?.classList.toggle('open', open);
+        menuBtn?.setAttribute('aria-expanded', String(open));
+      };
+      menuBtn?.addEventListener('click', () => setMenu(!navList?.classList.contains('open')));
+      navList?.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('a')) setMenu(false);
+      });
+
+      // Highlight the nav link of the section in view.
+      const links = [...document.querySelectorAll<HTMLAnchorElement>('.nav a')];
+      const byId = new Map(links.map((a) => [a.hash.slice(1), a]));
+      const spy = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (!e.isIntersecting) continue;
+            links.forEach((a) => a.classList.remove('active'));
+            byId.get(e.target.id)?.classList.add('active');
+          }
+        },
+        { rootMargin: '-45% 0px -50% 0px' },
+      );
+      byId.forEach((_, id) => {
+        const el = document.getElementById(id);
+        if (el) spy.observe(el);
+      });
+
+      // Gentle reveal on scroll (skipped for reduced motion via CSS).
+      const reveal = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              reveal.unobserve(e.target);
+            }
+          }
+        },
+        { rootMargin: '0px 0px -8% 0px' },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => reveal.observe(el));
+    </script>
+  </body>
+</html>

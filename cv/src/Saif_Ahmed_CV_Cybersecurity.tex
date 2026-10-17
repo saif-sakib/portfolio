@@ -1,0 +1,132 @@
+%──────────────────────────────────────────────────────────────
+%  CV — Md Saif Ahmed (Cybersecurity)
+%  Clean, single-column, ATS-friendly. Facts sourced from contents.txt
+%──────────────────────────────────────────────────────────────
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e}
+\raggedbottom
+\pagenumbering{gobble}
+
+\definecolor{accent}{HTML}{0B5394}
+\definecolor{dark}{HTML}{111827}
+\definecolor{gray}{HTML}{4B5563}
+\definecolor{lightgray}{HTML}{E5E7EB}
+\definecolor{ACCENT}{HTML}{0B5394}   % uppercase twins: \uppercase in section titles
+\definecolor{LIGHTGRAY}{HTML}{E5E7EB}
+
+\hypersetup{colorlinks=true, urlcolor=accent, linkcolor=accent, pdfborder={0 0 0}}
+
+\titleformat{\section}
+  {\large\bfseries\color{accent}\uppercase}
+  {}{0em}{}
+  [\vspace{3pt}{\color{lightgray}\hrule height 0.6pt}]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\setlist[itemize]{leftmargin=12pt, itemsep=0pt, parsep=0pt, topsep=1pt,
+  label=\textcolor{accent}{\small\textbullet}}
+
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1}\hfill{\small\color{gray}\textbf{#2}}\\[0pt]
+  {\small\itshape #3}\par\vspace{0pt}
+  \noindent #4\par\vspace{2pt}
+}
+
+\begin{document}
+
+\begin{center}
+  {\huge\bfseries\color{dark} Md Saif Ahmed}\\\vspace{4pt}
+  {\small\color{gray} Cybersecurity Practitioner $\cdot$ Web Security Instructor $\cdot$ Competitive Programmer}
+  \\\vspace{6pt}
+  \small
+  \href{mailto:saifahmedsakib@gmail.com}{saifahmedsakib@gmail.com} $\cdot$
+  +880\,1701-667488 $\cdot$
+  \href{https://github.com/saif-sakib}{github.com/saif-sakib} $\cdot$
+  \href{https://codeforces.com/profile/Saif_Ahmed008}{Codeforces: Saif\_Ahmed008} $\cdot$
+  \href{https://www.linkedin.com/in/saif-ahmed-8a14651b0}{LinkedIn}
+\end{center}
+
+\vspace{-4pt}
+\section{Summary}
+\begin{itemize}
+  \item CTF competitor: \textbf{Rank 5} Cyber Drill 2025, \textbf{Rank 34 globally} in Bugcrowd USA CTF 2025, multiple finals.
+  \item Web security instructor (OWASP Top 10, pentesting), trained 30+ students; 70+ PortSwigger labs completed.
+  \item Builds security tooling (BruteBuddy) and secure web apps with RBAC, rate limiting and input validation.
+\end{itemize}
+
+\section{Education}
+
+\entry{B.Sc. in Computer Science \& Engineering}{2023 -- 2027 (Expected)}
+{Military Institute of Science and Technology (MIST), Dhaka}
+{\small CGPA: \textbf{3.58 / 4.00} (up to Level-3, Term-2)}
+
+\entry{Higher Secondary Certificate (HSC)}{2022}
+{Govt.\ M.\,M.\ College, Jashore}
+{\small GPA: \textbf{5.00 / 5.00}}
+
+\section{Cybersecurity Achievements}
+\begin{tabularx}{\textwidth}{@{} X r @{\hspace{18pt}} X r @{}}
+Cyber Drill 2025 — WTISD Hackathon & \textbf{Rank 5} & Bugcrowd USA CTF 2025 & \textbf{Rank 34 (Global)} \\
+SMP CTF 2024 & \textbf{Rank 13} & BCS ICT Fest CTF 2025 & \textbf{Rank 18} \\
+Cyber Raid 2025 (Finals) & \textbf{Rank 18} & DIU Cybercon CTF 2025 (Finals) & \textbf{Rank 18} \\
+BUET CTF 2024 (Finals) & \textbf{Rank 18} & BUP CTF 2025 & \textbf{Rank 18} \\
+\end{tabularx}
+
+\vspace{2pt}
+\small
+\textbf{Training:} PortSwigger Academy (70+ labs) $\cdot$ TryHackMe (29 rooms) $\cdot$ PicoCTF (67+) $\cdot$ OverTheWire Natas $\cdot$ eShikhon Ethical Hacking $\cdot$ MCSC Ethical Hacking \& Security Analysis
+\normalsize
+
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{} >{\bfseries}p{2.9cm} X @{}}
+Security & Web Application Security, OWASP Top 10, Penetration Testing, Cryptography, Network Security \\
+Security Tools & Burp Suite, Wireshark, Packet Tracer, gitleaks, Linux (Arch/Ubuntu), BruteBuddy (own tool) \\
+Secure Dev & JWT + revocation, bcrypt, RBAC, CSP, rate limiting, audit logs, input validation \\
+Languages & Python, C++, Go, JavaScript, TypeScript, Java, SQL, Bash \\
+Web \& Infra & Node.js, Express.js, FastAPI, React, Next.js, PostgreSQL, MongoDB, Docker, Cloudflare \\
+\end{tabularx}
+
+\section{Projects}
+\entry{Hasnahena — Interest-Free Cooperative Finance Platform (Solo, Live)}
+{\href{https://hasnahenafoundation.com}{\small Live site}}
+{Tech Stack: Next.js, Go, PostgreSQL, Cloudflare, Sentry, gitleaks}
+{\begin{itemize}
+  \item Secured a \textbf{live} finance app holding real balances and NID documents: RBAC, bcrypt, JWT with server-side revocation in both backends, login lockout and rate limiting.
+  \item Append-only audit logs via DB trigger, per-route Content Security Policies (CI asserts zero violations), anti-enumeration auth responses, gitleaks over full history.
+\end{itemize}}
+\entry{BruteBuddy — Automated Security Testing Tool}
+{\href{https://github.com/saif-sakib/Brute-Buddy}{\small GitHub}}
+{Tech Stack: Python, requests, Multi-threading, CLI}
+{\begin{itemize}
+  \item CLI for \textbf{automated fuzzing} and brute-force testing of login endpoints: multi-field payloads, generated values, payload combinations, headers/cookies, auto re-authentication.
+  \item Parallel requests with \texttt{ThreadPoolExecutor}, achieving \textbf{3$\times$ faster execution}.
+\end{itemize}}
+\section{Leadership \& Experience}
+\entry{Web Security Instructor}{May 2024 -- Jun 2026}
+{MIST Cyber Security Club (MCSC)}
+{\begin{itemize}
+  \item Ran hands-on workshops on \textbf{OWASP Top 10} vulnerabilities and real-world exploitation scenarios.
+  \item Trained \textbf{30+ students} in penetration testing methodology and secure coding practices.
+\end{itemize}}
+
+\noindent\textbf{Executive Director}, Mentor Committee (Jun 2025 -- Jun 2026): coordinated security mentoring initiatives and learning tracks.\par\vspace{2pt}
+
+\noindent\textbf{President}, MIST Computer Club (Jun 2026 -- Present): 15+ core members, 10+ events/year, ICPC camps for 200+ students. \textbf{CP Instructor} (May 2024 -- Present): mentoring 50+ students. Earlier: Vice President (2025--26), Executive Member (2024--25).
+\vspace{3pt}
+
+\section{Competitive Programming}
+\small
+Codeforces \textbf{Specialist} (Max 1514) $\cdot$ CodeChef \textbf{3-Star} (Max 1722) $\cdot$ 1700+ problems solved \\
+\textbf{Champion}, BUP IAUPC 2025 $\cdot$ \textbf{Rank 38}, ICPC Asia Dhaka Regional 2025 $\cdot$ \textbf{Rank 117}, ICPC Dhaka Regional 2024 $\cdot$ \textbf{Rank 16}, DUET IUPC 2025 $\cdot$ Meta Hacker Cup 2024 Round 2
+\normalsize
+
+\end{document}

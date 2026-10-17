@@ -1,0 +1,295 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import SectionHead from '../components/SectionHead.astro';
+import ResultTable from '../components/ResultTable.astro';
+import {
+  person, links, socials, cvs, glance, education, featured, projects,
+  cpProfiles, icpc, iupc, otherCp, ctfs, training, certifications,
+  experience, hackathons, skills,
+} from '../data/profile';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const cvHref = (file: string) => `${base}cv/${file}`;
+const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
+---
+
+<Base>
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-text">
+      <p class="eyebrow"><Icon name="pin" size={14} /> {person.location}</p>
+      <h1>{person.name}</h1>
+      <p class="headline">{person.headline}</p>
+      <p class="lede">{person.intro}</p>
+
+      <div class="hero-actions">
+        <a class="btn" href={cvHref(primaryCv.file)} target="_blank" rel="noopener">
+          <Icon name="download" size={16} /> Download CV
+        </a>
+        <details class="cv-menu">
+          <summary class="btn btn-ghost">Tailored CVs <Icon name="chevron" size={14} /></summary>
+          <ul>
+            {cvs.map((c) => (
+              <li><a href={cvHref(c.file)} target="_blank" rel="noopener">{c.label}</a></li>
+            ))}
+          </ul>
+        </details>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+
+      <ul class="socials" aria-label="Profiles">
+        {socials.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener" aria-label={s.label} title={s.label}>
+              <Icon name={s.icon} />
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href={`mailto:${links.email}`} aria-label="Email" title="Email"><Icon name="mail" /></a>
+        </li>
+      </ul>
+    </div>
+
+    <aside class="glance" aria-label="At a glance">
+      <p class="glance-title">At a glance</p>
+      <dl>
+        {glance.map((g) => (
+          <div>
+            <dt>{g.label}</dt>
+            <dd>{g.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="glance-foot">
+        Building <a href={featured.href} target="_blank" rel="noopener">{featured.name}</a> — live since Aug 2026
+      </p>
+    </aside>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section container reveal">
+    <SectionHead num="01" title="About" />
+    <div class="about-grid">
+      <div class="prose">
+        {person.about.map((p) => <p>{p}</p>)}
+      </div>
+      <div class="edu">
+        <h3 class="mini-title">Education</h3>
+        {education.map((e) => (
+          <article class="edu-item">
+            <p class="edu-period">{e.period}</p>
+            <h4>{e.degree}</h4>
+            <p class="muted">{e.school}</p>
+            <p class="edu-detail">{e.detail}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured work -->
+  <section id="work" class="section container reveal">
+    <SectionHead num="02" title="Selected work" />
+
+    <article class="featured">
+      <header class="featured-head">
+        <div>
+          <p class="tag tag-live"><span class="dot"></span>{featured.status}</p>
+          <h3>{featured.name}</h3>
+          <p class="featured-tagline">{featured.tagline}</p>
+        </div>
+        <a class="btn" href={featured.href} target="_blank" rel="noopener">
+          Visit live site <Icon name="arrow" size={16} />
+        </a>
+      </header>
+
+      <p class="featured-summary">{featured.summary}</p>
+
+      <dl class="metrics">
+        {featured.metrics.map((m) => (
+          <div>
+            <dd>{m.value}</dd>
+            <dt>{m.label}</dt>
+          </div>
+        ))}
+      </dl>
+
+      <div class="featured-grid">
+        {featured.highlights.map((h) => (
+          <div class="featured-point">
+            <h4>{h.title}</h4>
+            <p>{h.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <footer class="featured-foot">
+        <ul class="checks">
+          {featured.features.map((f) => <li>{f}</li>)}
+        </ul>
+        <ul class="chips">
+          {featured.stack.map((s) => <li>{s}</li>)}
+        </ul>
+      </footer>
+    </article>
+
+    <h3 class="mini-title projects-title">More projects</h3>
+    <div class="projects">
+      {projects.map((p) => (
+        <a class="card project" href={p.href} target="_blank" rel="noopener">
+          <div class="project-top">
+            <span class="kind">{p.kind}</span>
+            <Icon name="arrow" size={16} class="project-arrow" />
+          </div>
+          <h4>{p.name}</h4>
+          <p class="project-tagline">{p.tagline}</p>
+          <p class="project-desc">{p.description}</p>
+          <ul class="chips chips-small">
+            {p.stack.map((s) => <li>{s}</li>)}
+          </ul>
+        </a>
+      ))}
+    </div>
+    <p class="more-link">
+      <a href={links.github} target="_blank" rel="noopener">More on GitHub <Icon name="arrow" size={14} /></a>
+    </p>
+  </section>
+
+  <!-- Competitive programming -->
+  <section id="competitive" class="section container reveal">
+    <SectionHead num="03" title="Competitive programming" />
+
+    <div class="profiles">
+      {cpProfiles.map((p) => {
+        const Tag = p.href ? 'a' : 'div';
+        return (
+          <Tag class="card profile" {...(p.href ? { href: p.href, target: '_blank', rel: 'noopener' } : {})}>
+            <p class="profile-platform">{p.platform}</p>
+            <p class="profile-title">{p.title}</p>
+            <p class="muted">{p.detail}</p>
+          </Tag>
+        );
+      })}
+    </div>
+
+    <div class="results">
+      <div>
+        <h3 class="mini-title">ICPC Asia Dhaka Regional</h3>
+        <ResultTable rows={icpc} />
+      </div>
+      <div>
+        <h3 class="mini-title">Inter-university contests</h3>
+        <ResultTable rows={iupc} />
+        <p class="muted small">{otherCp}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security -->
+  <section id="security" class="section container reveal">
+    <SectionHead num="04" title="Cybersecurity" />
+
+    <div class="security-grid">
+      <div>
+        <h3 class="mini-title">CTF results</h3>
+        <ol class="ctf-list">
+          {ctfs.map((c) => (
+            <li class:list={[{ hl: c.highlight }]}>
+              <span class="ctf-rank">{c.rank}</span>
+              <span class="ctf-event">
+                {c.event}
+                {c.note && <em> · {c.note}</em>}
+                <small>{c.team}</small>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="mini-title">Hands-on practice</h3>
+        <div class="training">
+          {training.map((t) => (
+            <div class="training-item">
+              <p class="training-value">{t.value}</p>
+              <p>{t.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="mini-title">Training</h3>
+        <ul class="plain-list">
+          {certifications.map((c) => <li>{c}</li>)}
+        </ul>
+
+        <h3 class="mini-title">Hackathons</h3>
+        <ul class="plain-list">
+          {hackathons.map((h) => <li>{h}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section container reveal">
+    <SectionHead num="05" title="Experience & leadership" />
+    <ol class="timeline">
+      {experience.map((r) => (
+        <li>
+          <p class="tl-period">{r.period}</p>
+          <div class="tl-body">
+            <h4>{r.title} <span class="muted">· {r.org}</span></h4>
+            <ul>
+              {r.points.map((pt, i) => (
+                <li>
+                  {pt}
+                  {r.link && i === r.points.length - 1 && (
+                    <>{' '}<a href={r.link.href} target="_blank" rel="noopener">{r.link.label}</a></>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section container reveal">
+    <SectionHead num="06" title="Skills" />
+    <div class="skills">
+      {skills.map((s) => (
+        <div class="skill-row">
+          <h4>{s.group}</h4>
+          <ul class="chips">
+            {s.items.map((i) => <li>{i}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section container reveal">
+    <div class="contact">
+      <p class="eyebrow">07 — Contact</p>
+      <h2>Let’s build something reliable.</h2>
+      <p class="lede">
+        I’m open to internships, software engineering roles and collaborations. The quickest way to reach me is email.
+      </p>
+      <a class="contact-mail" href={`mailto:${links.email}`}>{links.email}</a>
+      <ul class="contact-links">
+        {socials.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener">
+              <Icon name={s.icon} size={16} /> {s.label} <span class="muted">{s.handle}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>

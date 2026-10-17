@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Astro build output and cache
+site/dist/
+site/.astro/
+
+# CV PDFs copied into the site at build time (source of truth: cv/pdf/)
+site/public/cv/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+
+# Editors / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
