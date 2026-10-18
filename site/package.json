@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "sync-cv": "node scripts/sync-cv.mjs",
-    "dev": "node scripts/sync-cv.mjs && astro dev",
-    "build": "node scripts/sync-cv.mjs && astro build",
+    "dev": "astro dev",
+    "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {

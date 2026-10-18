@@ -1,4 +1,4 @@
-// All facts on the site come from ../profile/contents.txt (the single source of truth).
+// All facts on the site come from profile/contents.txt in the private job-pilot repo (the single source of truth).
 // Update contents.txt first, then mirror the change here.
 
 export const person = {
@@ -32,7 +32,7 @@ export const socials = [
   { label: 'TryHackMe', handle: 'AhmedSakib', href: links.tryhackme, icon: 'shield' },
 ] as const;
 
-// PDFs are copied from ../cv/pdf at build time (scripts/sync-cv.mjs).
+// PDFs live in public/cv, published from the job-pilot repo by its cv/publish.sh.
 export const cvs = [
   { label: 'General', file: 'Saif_Ahmed_CV_General.pdf', primary: true },
   { label: 'Backend', file: 'Saif_Ahmed_CV_Backend.pdf' },

@@ -1,7 +1,0 @@
-\entry{QuestBoard — Gamified Q\&A Platform for STEM Students \textmd{\color{gray}(Team)}}
-{\linkto{https://github.com/Ragib100/QuestBoard}{GitHub}}
-{Python, FastAPI, SQLAlchemy, PostgreSQL (Supabase), Anthropic Claude API, Codeforces API, pytest, Flutter, Render}
-{\begin{itemize}
-  \item Students post ``quests'' with point bounties. \textbf{Wrote all of the current server code}: FastAPI, 7 routers, \textasciitilde40 endpoints; Postgres schema with race-safe voting (UNIQUE), trigram search, RLS, and a point ledger moving points \textbf{atomically in one transaction}.
-  \item \textbf{Anthropic Claude API} hints, rate-limited and refunded on failure; Codeforces API daily challenges and handle verification; \textbf{70 pytest tests} run in CI against a real Postgres; deployed on Render.
-\end{itemize}}
