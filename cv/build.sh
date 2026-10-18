@@ -23,7 +23,9 @@ status=0
 for tex in "${files[@]}"; do
   base=$(basename "$tex" .tex)
   pdflatex -interaction=nonstopmode -output-directory="$OUT" "$tex" > /dev/null || {
-    echo "FAIL  $base (see $OUT/$base.log)"; status=1; continue; }
+    echo "FAIL  $base (see $OUT/$base.log)"
+    grep -m3 -A2 '^!' "$OUT/$base.log" || tail -5 "$OUT/$base.log"
+    status=1; continue; }
   pages=$(pdfinfo "$OUT/$base.pdf" | awk '/^Pages:/ {print $2}')
   if (( pages <= MAX_PAGES )); then
     echo "ok    $base ($pages page$([[ $pages == 1 ]] || echo s))"
