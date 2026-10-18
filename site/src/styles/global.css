@@ -589,6 +589,12 @@ a.card:hover {
   flex-wrap: wrap;
 }
 
+.featured-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .featured-head h3 {
   font-size: clamp(1.8rem, 3.6vw, 2.3rem);
   margin-top: 10px;

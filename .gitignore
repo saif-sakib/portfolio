@@ -5,7 +5,9 @@ node_modules/
 site/dist/
 site/.astro/
 
-# CV PDFs copied into the site at build time (source of truth: cv/pdf/)
+# CV PDFs are build output: ./cv/build.sh writes cv/pdf/ (CI builds them for the site),
+# and the site build copies them into site/public/cv/.
+cv/pdf/
 site/public/cv/
 
 # LaTeX build artifacts

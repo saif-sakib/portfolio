@@ -1,7 +1,7 @@
 %──────────────────────────────────────────────────────────────
-%  CV — Md Saif Ahmed (AI/ML)
+%  CV — Md Saif Ahmed (AI / ML)
 %  Facts sourced from profile/contents.txt. Style: saifcv.sty
-%  Thinnest variant: strengthen as real AI/ML work is added to contents.txt.
+%  Shared sections live in sections/ and are used by every CV.
 %──────────────────────────────────────────────────────────────
 \documentclass[10pt,a4paper]{article}
 \usepackage{saifcv}
@@ -11,82 +11,51 @@
 
 \cvheader{Software Engineer (AI/ML) \textbar{} Python Developer \textbar{} Competitive Programmer}
 
-CSE undergraduate at MIST building LLM-powered and data-driven software. Worked on a FastAPI application that
+CSE undergraduate at MIST building LLM-powered and data-driven software. Built the FastAPI backend of an app that
 integrates the \textbf{Anthropic Claude API}, trained in AI/ML at JB Connect Ltd, and writes Python tooling for
 scraping, reporting and scheduling. Brings a strong algorithmic and mathematical base from competitive programming
-and production engineering discipline as the \textbf{sole developer of a live finance platform}.
+(\textbf{38th at ICPC Asia Dhaka Regional 2025}) and production engineering discipline as the \textbf{sole developer of a live finance platform}.
 
 \vspace{6pt}
 \highlights{4}{
-  \stat{Champion}{BUP IAUPC 2025} &
+  \stat{Live}{solo-built finance platform, since Aug 2026} &
   \stat{38th}{ICPC Asia Dhaka Regional 2025} &
   \stat{1700+}{problems solved \textbullet{} CF Specialist} &
   \stat{1722}{CodeChef max rating \textbullet{} 3-Star}
 }
 
-\section{Education}
-\entry{B.Sc. in Computer Science \& Engineering}{2023 -- 2027 (Expected)}
-{Military Institute of Science and Technology (MIST), Dhaka \textbar{} CGPA \textbf{\upshape 3.58 / 4.00} (up to Level-3, Term-2)}{}
-\entry{Higher Secondary Certificate (HSC) \textmd{\color{gray}\small\textbar{} Govt.\ M.\,M.\ College, Jashore \textbar{} GPA 5.00 / 5.00}}{2022}{}{}
+\input{sections/education}
 
 \section{Technical Skills}
 \begin{skills}
 Languages & Python, C++, Go, TypeScript, JavaScript, SQL, Bash \\
-AI / LLM & Anthropic Claude API, Vercel AI SDK (Google, OpenAI) \\
-Python & FastAPI, Pydantic, SQLAlchemy, requests, BeautifulSoup, Selenium, ReportLab, pytest, Ruff, Black \\
+AI / LLM & Anthropic Claude API, Vercel AI SDK (Google, OpenAI), OpenAI-compatible APIs, mockable AI clients for tests \\
+Python & FastAPI, Pydantic, SQLAlchemy, Alembic, requests, BeautifulSoup, Selenium, ReportLab, pytest, Ruff, Black \\
 Data & PostgreSQL (Neon, Supabase), MongoDB, Oracle, MySQL, web scraping, REST APIs (Codeforces API) \\
 Deployment & Docker, GitHub Actions, Vercel, Render, Sentry \\
 Core CS & Data structures, algorithms (graphs, DP, segment trees), OOP, system design \\
 \end{skills}
 
 \section{Projects}
-\entry{QuestBoard — Gamified Q\&A Platform for STEM Students \textmd{\color{gray}(Team)}}
-{\linkto{https://github.com/Ragib100/QuestBoard}{GitHub}}
-{Python, FastAPI, Pydantic, SQLAlchemy, Anthropic Claude API, Supabase (Postgres), Flutter, Sentry}
-{\begin{itemize}
-  \item Q\&A platform integrating the \textbf{Anthropic Claude API} into a FastAPI backend; students post ``quests'' with point bounties and accepted answers earn the points.
-  \item Typed request/response models (Pydantic), point-ledger economy covered by pytest, and GitHub Actions CI running Ruff, Black and pytest.
-\end{itemize}}
-\entry{Rank-Raven — Codeforces Contest Reporter \textmd{\color{gray}(Solo)}}
-{\linkto{https://github.com/saif-sakib/Rank-Raven}{GitHub}}
-{Python, Selenium, undetected-chromedriver, BeautifulSoup, requests, ReportLab}
-{\begin{itemize}
-  \item Scrapes a Codeforces user list, counts each user's solves over the last 30 days via the Codeforces API, merges them with student levels and generates a styled multi-page \textbf{PDF report}.
-\end{itemize}}
-\entry{upsolve\_tracker — Codeforces Upsolve Planner \textmd{\color{gray}(Solo)}}
-{\linkto{https://github.com/saif-sakib/upsolve_tracker}{GitHub}}
-{Google Apps Script, Google Sheets, HTML Service, Codeforces API, clasp}
-{\begin{itemize}
-  \item Pulls near-miss problems, schedules them over the coming days, times solves and \textbf{detects AC automatically}; vjudge sync and a dashboard.
-\end{itemize}}
+\input{sections/projects/questboard}
 \entry{Hasnahena — Interest-Free Cooperative Finance Platform \textmd{\color{gray}(Solo, in production)}}
-{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com}}
+{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com} \textbar{} \linkto{https://github.com/saif-sakib/hasnahena}{GitHub}}
 {Next.js, TypeScript, Go, PostgreSQL (Neon), Vercel, Render, Cloudflare}
 {\begin{itemize}
-  \item Sole developer of a \textbf{live} finance platform for a Jashore cooperative (since Aug 2026) with a transactional Go ledger and daily reconciliation.
+  \item Sole developer of a \textbf{live} finance platform for a Jashore cooperative (since Aug 2026): deposits, interest-free loans with guarantors, donations and disputes, with a transactional Go ledger and daily reconciliation.
   \item Verified with \textbf{400k-iteration} money property tests, a chi-square uniformity test of generated secrets, Postgres integration tests and a load test at \textbf{\textasciitilde180 postings/s}.
+  \item Encrypted daily backups with CI restore drills, Sentry and UptimeRobot monitoring, and \textbf{45 ADRs} documenting design decisions.
 \end{itemize}}
+\input{sections/projects/mcc}
+\input{sections/projects/localfix}
+\input{sections/projects/hallbridge}
+\input{sections/projects/brutebuddy}
+\input{sections/projects/gyantori}
 
-\section{Experience \& Leadership}
-\entry{Industrial Trainee, JB Connect Ltd (JBC)}{2026 \textbar{} 4 weeks}{}
-{\begin{itemize}
-  \item Industry sessions on \textbf{AI/ML}, backend and DevOps, working on tasks with company teams; group project \linkto{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.
-\end{itemize}}
-\entry{President, MIST Computer Club}{Jun 2026 -- Present}
-{Vice President (May 2025 -- Jun 2026) \textbar{} Executive Member (May 2024 -- May 2025)}
-{\begin{itemize}
-  \item Lead strategy and mentor \textbf{15+ core members} delivering \textbf{10+ technical events a year}; direct ICPC camps and workshops reaching \textbf{200+ students}.
-\end{itemize}}
-\entry{Competitive Programming Instructor, MIST Computer Club}{May 2024 -- Present}{}
-{\begin{itemize}
-  \item Mentor \textbf{50+ junior students} in algorithms with an \textbf{80\% retention rate}; curated 20+ problem sets and mock contests.
-\end{itemize}}
-
-\section{Competitive Programming}
-{\small \textbf{Codeforces} Specialist (max 1514) \textbar{} \textbf{CodeChef} 3-Star (max 1722) \textbar{} \textbf{1700+} problems solved on 5 online judges}
-\begin{results}
-BUP IAUPC 2025 & \rk{Champion} & ICPC Asia Dhaka Regional 2024 \textit{\color{gray}(univ.\ teams)} & \rk{117th} \\
-ICPC Asia Dhaka Regional 2025 \textit{\color{gray}(univ.\ teams)} & \rk{38th} & Meta Hacker Cup 2024 & \rk{Round 2} \\
-\end{results}
+\input{sections/tools}
+\input{sections/experience}
+\input{sections/cp}
+\input{sections/leadership}
+\input{sections/cyber}
 
 \end{document}

@@ -1,5 +1,5 @@
 %──────────────────────────────────────────────────────────────
-%  saifcv.sty — shared style for all five CVs of Md Saif Ahmed
+%  saifcv.sty — shared style for all six CVs of Md Saif Ahmed
 %  Charter body, Helvetica-style (TeX Gyre Heros) headings, navy accent.
 %  Edit here, not in the individual CVs, so they stay consistent.
 %──────────────────────────────────────────────────────────────
@@ -17,6 +17,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{tabularx}
 \RequirePackage{array}
+\RequirePackage{needspace}
 \RequirePackage[hidelinks]{hyperref}
 
 % Selectable, ATS-readable text (ligatures map back to letters).
@@ -48,18 +49,19 @@
 \color{dark}
 
 %── Header ─────────────────────────────────────────────────────
-% \cvheader{headline}
-\newcommand{\cvheader}[1]{%
+% \cvheader[location]{headline} — location defaults to "Dhaka, Bangladesh"
+\newcommand{\cvheader}[2][Dhaka, Bangladesh]{%
   \begin{minipage}[b]{0.6\textwidth}
     {\sffamily\bfseries\fontsize{25}{27}\selectfont\color{dark}Md Saif Ahmed}\\[5pt]
-    {\sffamily\fontsize{10.5}{12}\selectfont\color{accent}#1}
+    {\sffamily\fontsize{10.5}{12}\selectfont\color{accent}#2}
   \end{minipage}\hfill
   \begin{minipage}[b]{0.38\textwidth}\raggedleft\small\color{gray}
     \href{mailto:saifahmedsakib@gmail.com}{saifahmedsakib@gmail.com}\\
-    +880 1701-667488 \textbar{} Dhaka, Bangladesh\\
+    +880 1701-667488 \textbar{} #1\\
     \href{https://github.com/saif-sakib}{github.com/saif-sakib} \textbar{}
     \href{https://www.linkedin.com/in/saif-ahmed-8a14651b0}{LinkedIn}\\
-    \href{https://codeforces.com/profile/Saif_Ahmed008}{codeforces.com/profile/Saif\_Ahmed008}
+    \href{https://codeforces.com/profile/Saif_Ahmed008}{codeforces.com/profile/Saif\_Ahmed008}\\
+    \href{https://saif-sakib.github.io/portfolio/}{saif-sakib.github.io/portfolio}
   \end{minipage}\par
   \vspace{6pt}{\color{accent}\hrule height 1.2pt}\vspace{7pt}%
 }
@@ -77,8 +79,10 @@
   \end{minipage}}}\par\vspace{1pt}}
 
 %── Sections ───────────────────────────────────────────────────
+% Tracking stays at 80: from 90 up, text extraction (what ATS parsers read)
+% splits titles into "EXPERIEN CE", "PROGRAMMIN G".
 \newcommand{\sectionline}[1]{%
-  \MakeUppercase{\textls[90]{#1}}\hspace{7pt}%
+  \MakeUppercase{\textls[80]{#1}}\hspace{7pt}%
   {\color{LIGHTGRAY}\leaders\hbox{\rule[0.3ex]{1pt}{0.7pt}}\hfill\kern0pt}}
 \titleformat{\section}
   {\sffamily\bfseries\fontsize{10.5}{12}\selectfont\color{accent}}
@@ -92,6 +96,7 @@
 %── Entries ────────────────────────────────────────────────────
 % \entry{Title}{Right-hand info}{Subtitle (may be empty)}{Body}
 \newcommand{\entry}[4]{%
+  \Needspace{3\baselineskip}% keep a title with its first lines
   {\sffamily\bfseries\color{dark}#1}\hfill{\sffamily\small\color{gray}#2}\par
   \if\relax\detokenize{#3}\relax\else{\small\color{gray}\itshape #3}\par\fi
   #4\par\vspace{2.5pt}}
@@ -104,6 +109,7 @@
 
 % Two-column result list: \begin{results} Contest & Rank & Contest & Rank \\ \end{results}
 \newcommand{\rk}[1]{{\sffamily\bfseries\color{accent}#1}}
+\newcommand{\outof}[1]{{\color{gray}\,/\,#1}}   % team count after a rank: \rk{16th}\outof{137}
 \newenvironment{results}
   {\par\small\renewcommand{\arraystretch}{1.12}%
    \tabularx{\textwidth}{@{}X r @{\hspace{22pt}} X r@{}}}

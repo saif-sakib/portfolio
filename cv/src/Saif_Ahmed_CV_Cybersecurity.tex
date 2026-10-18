@@ -1,6 +1,7 @@
 %──────────────────────────────────────────────────────────────
 %  CV — Md Saif Ahmed (Cybersecurity)
 %  Facts sourced from profile/contents.txt. Style: saifcv.sty
+%  Shared sections live in sections/ and are used by every CV.
 %──────────────────────────────────────────────────────────────
 \documentclass[10pt,a4paper]{article}
 \usepackage{saifcv}
@@ -13,6 +14,7 @@
 CSE undergraduate at MIST focused on web application security: CTF player with university teams and former
 \textbf{Web Security Instructor} (30+ students trained in OWASP Top 10 and pentesting). Applies it in production as
 \textbf{sole developer of Hasnahena}, a live finance platform holding real balances and identity documents.
+Competitive programmer (\textbf{38th at ICPC Asia Dhaka Regional 2025}) and President of the MIST Computer Club.
 
 \vspace{6pt}
 \highlights{4}{
@@ -22,60 +24,42 @@ CSE undergraduate at MIST focused on web application security: CTF player with u
   \stat{30+}{students trained in web security}
 }
 
-\section{Education}
-\entry{B.Sc. in Computer Science \& Engineering}{2023 -- 2027 (Expected)}
-{Military Institute of Science and Technology (MIST), Dhaka \textbar{} CGPA \textbf{\upshape 3.58 / 4.00} (up to Level-3, Term-2)}{}
-\entry{Higher Secondary Certificate (HSC) \textmd{\color{gray}\small\textbar{} Govt.\ M.\,M.\ College, Jashore \textbar{} GPA 5.00 / 5.00}}{2022}{}{}
-
-\section{CTF Results}
-\begin{results}
-Cyber Drill 2025 (WTISD Hackathon) & \rk{5th} & BUET CTF 2024 (finals) & \rk{18th} \\
-SMP CTF 2024 & \rk{13th} & Cyber Raid 2025 (finals) & \rk{18th} \\
-Bugcrowd USA CTF 2025 & \rk{34th global} & DIU Cybercon CTF 2025 (finals) & \rk{18th} \\
-BCS ICT Fest CTF 2025 & \rk{18th} & BUP CTF 2025 & \rk{18th} \\
-\end{results}
-{\small \textbf{Hands-on practice:} PortSwigger Academy \textbf{70+ labs} across 10+ web security categories \textbar{} PicoCTF \textbf{67+} \textbar{} TryHackMe \textbf{29 rooms} \textbar{} OverTheWire Natas\\
-\textbf{Training:} Hands-on Ethical Hacking and Security Analysis (MIST Cyber Security Club) \textbar{} eShikhon Ethical Hacking Live Course}
-
-\section{Experience \& Leadership}
-\entry{Web Security Instructor, MIST Cyber Security Club}{May 2024 -- Jun 2026}{}
-{\begin{itemize}
-  \item Ran hands-on workshops on \textbf{OWASP Top 10} vulnerabilities with real-world exploitation scenarios.
-  \item Trained \textbf{30+ students} in penetration testing methodology and secure coding practices.
-\end{itemize}}
-\entry{Executive Director, Mentor Committee}{Jun 2025 -- Jun 2026}{Coordinated security mentoring initiatives and learning tracks.}{}
-\entry{Industrial Trainee, JB Connect Ltd (JBC)}{2026 \textbar{} 4 weeks}{Industry training in DevOps, backend and AI/ML with company teams; group project \linkto{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.}{}
-\entry{President, MIST Computer Club}{Jun 2026 -- Present}
-{Vice President (May 2025 -- Jun 2026) \textbar{} Executive Member (May 2024 -- May 2025) \textbar{} CP Instructor (May 2024 -- Present)}
-{\begin{itemize}
-  \item Lead strategy and mentor \textbf{15+ core members} delivering \textbf{10+ technical events a year}; mentor \textbf{50+ students}.
-\end{itemize}}
+\input{sections/education}
+\input{sections/cyber}
 
 \section{Security Projects}
 \entry{Hasnahena — Interest-Free Cooperative Finance Platform \textmd{\color{gray}(Solo, in production)}}
-{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com}}
+{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com} \textbar{} \linkto{https://github.com/saif-sakib/hasnahena}{GitHub}}
 {Next.js, Go, PostgreSQL, Cloudflare, Sentry, gitleaks, GitHub Actions}
 {\begin{itemize}
   \item Secured a \textbf{live} finance app holding real balances and NID documents: RBAC on every endpoint, bcrypt, self-hosted JWT with \textbf{server-side revocation checked by both backends}, all sessions revoked on password change.
-  \item Cloudflare-aware rate limiting and login lockout; \textbf{anti-enumeration} auth responses; trigger-enforced append-only audit logs.
-  \item Two Content Security Policies per route type with CI asserting \textbf{zero CSP violations}; gitleaks secret scanning over the full git history, golangci-lint and Dependabot.
+  \item Cloudflare-aware rate limiting and login lockout; \textbf{anti-enumeration} auth responses; trigger-enforced append-only audit logs; every financial write atomic in one transaction.
+  \item Two Content Security Policies per route type with CI asserting \textbf{zero CSP violations}; gitleaks secret scanning over the full git history, golangci-lint and Dependabot; chi-square uniformity test of generated secrets.
+  \item Encrypted off-site backups with restore drills (\textbf{RPO 24\,h, RTO \textless{} 1\,h}); Sentry and UptimeRobot monitoring; daily ledger reconciliation.
 \end{itemize}}
-\entry{BruteBuddy — Automated Security Testing Tool \textmd{\color{gray}(Solo)}}
-{\linkto{https://github.com/saif-sakib/Brute-Buddy}{GitHub}}
-{Python, requests, ThreadPoolExecutor, CLI}
-{\begin{itemize}
-  \item CLI for \textbf{automated fuzzing} and brute-force testing of login endpoints: multi-field payloads, generated values, zip/product combinations, custom headers and cookies, automatic re-authentication; parallel \texttt{ThreadPoolExecutor} requests run \textbf{3$\times$ faster}.
-\end{itemize}}
+\input{sections/projects/brutebuddy}
+
+\input{sections/leadership}
+
+\section{Other Projects}
+\input{sections/projects/mcc}
+\input{sections/projects/questboard}
+\input{sections/projects/localfix}
+\input{sections/projects/hallbridge}
+\input{sections/projects/gyantori}
+
+\input{sections/tools}
+\input{sections/experience}
+
 \section{Technical Skills}
 \begin{skills}
 Security & Web application security, OWASP Top 10, penetration testing, cryptography, network security \\
 Tools & Burp Suite, Wireshark, Packet Tracer, gitleaks, Linux (Arch/Ubuntu), BruteBuddy (own tool) \\
-Secure Dev & JWT with revocation, bcrypt, RBAC, CSP, rate limiting, audit logs, input validation, HTML sanitization \\
+Secure Dev & JWT with revocation, bcrypt, RBAC, OAuth 2.0, CSP, rate limiting, audit logs, input validation, HTML sanitization \\
 Languages & Python, C++, Go, JavaScript, TypeScript, Java, SQL, Bash \\
-Web \& Infra & Node.js, Express.js, FastAPI, React, Next.js, PostgreSQL, MongoDB, Docker, Cloudflare \\
+Web \& Infra & Node.js, Express.js, FastAPI, React, Next.js, PostgreSQL, MongoDB, Oracle, Docker, Cloudflare, GitHub Actions \\
 \end{skills}
 
-\section{Competitive Programming}
-{\small \textbf{Codeforces} Specialist (max 1514) \textbar{} \textbf{CodeChef} 3-Star (max 1722) \textbar{} \textbf{1700+} problems solved \textbar{} \rk{Champion} BUP IAUPC 2025 \textbar{} \rk{38th} ICPC Dhaka Regional 2025}
+\input{sections/cp}
 
 \end{document}

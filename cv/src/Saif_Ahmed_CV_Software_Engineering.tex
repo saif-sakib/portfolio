@@ -1,6 +1,7 @@
 %──────────────────────────────────────────────────────────────
 %  CV — Md Saif Ahmed (Software Engineering / Full-Stack)
 %  Facts sourced from profile/contents.txt. Style: saifcv.sty
+%  Shared sections live in sections/ and are used by every CV.
 %──────────────────────────────────────────────────────────────
 \documentclass[10pt,a4paper]{article}
 \usepackage{saifcv}
@@ -12,80 +13,51 @@
 
 Full-stack software engineer and CSE undergraduate at MIST. \textbf{Sole developer of Hasnahena}, a live
 interest-free finance platform (Go API, Next.js front end) serving real members since August 2026. Works across
-React/Next.js, Go, Node.js and FastAPI with a testing-first habit and an ICPC-level algorithmic foundation.
+React/Next.js, Go, Node.js and FastAPI with a testing-first habit and an ICPC-level algorithmic foundation
+(\textbf{38th at ICPC Asia Dhaka Regional 2025}).
 
 \vspace{6pt}
 \highlights{4}{
   \stat{Live}{solo-built platform, since Aug 2026} &
   \stat{\textasciitilde180/s}{postings sustained in load test} &
-  \stat{Champion}{BUP IAUPC 2025} &
+  \stat{38th}{ICPC Asia Dhaka Regional 2025} &
   \stat{1700+}{problems solved \textbullet{} CF Specialist}
 }
 
-\section{Education}
-\entry{B.Sc. in Computer Science \& Engineering}{2023 -- 2027 (Expected)}
-{Military Institute of Science and Technology (MIST), Dhaka \textbar{} CGPA \textbf{\upshape 3.58 / 4.00} (up to Level-3, Term-2)}{}
-\entry{Higher Secondary Certificate (HSC) \textmd{\color{gray}\small\textbar{} Govt.\ M.\,M.\ College, Jashore \textbar{} GPA 5.00 / 5.00}}{2022}{}{}
+\input{sections/education}
 
 \section{Technical Skills}
 \begin{skills}
 Languages & C++, Go, Python, TypeScript, JavaScript, Java, Dart, SQL, Bash \\
 Frontend & React, Next.js, Vite, Tailwind CSS, shadcn/ui, Radix UI, MUI, TanStack Query, next-intl, Flutter \\
-Backend & Go (chi, pgx), Node.js, Express.js, FastAPI, Prisma, SQLAlchemy, REST APIs, JWT, RBAC \\
-Databases & PostgreSQL (Neon, Supabase), MongoDB (Mongoose), Oracle Database, MySQL \\
+Backend & Go (chi, pgx), Node.js, Express.js, FastAPI, Hono, Prisma, SQLAlchemy, REST APIs, SSE, JWT, OAuth 2.0, RBAC \\
+Databases & PostgreSQL (Neon, Supabase), MongoDB (Mongoose), Oracle Database (PL/SQL), MySQL \\
 Cloud \& DevOps & GitHub Actions, Docker, Vercel, Render, Cloudflare, Cloudinary, Sentry, UptimeRobot \\
 Testing & Playwright, Vitest, Go testing (unit, integration, property, load), pytest, ESLint, golangci-lint \\
+AI / LLM & Anthropic Claude API, Vercel AI SDK, OpenAI-compatible APIs \\
 \end{skills}
 
 \section{Projects}
 \entry{Hasnahena — Interest-Free Cooperative Finance Platform \textmd{\color{gray}(Solo, in production)}}
-{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com}}
+{\linkto{https://hasnahenafoundation.com}{hasnahenafoundation.com} \textbar{} \linkto{https://github.com/saif-sakib/hasnahena}{GitHub}}
 {Next.js 16, React 19, TypeScript, Go (chi, pgx), PostgreSQL (Neon), Prisma, Tailwind, next-intl, Cloudflare}
 {\begin{itemize}
   \item Built and operate a platform digitising a Jashore cooperative's passbook, \textbf{live with real members since Aug 2026}: deposits, interest-free loans with guarantors, donations, disputes; member, worker and admin roles.
   \item pnpm monorepo: Next.js web app on Vercel and a Go API on Render that owns every balance-changing write in a \textbf{single database transaction}; fully bilingual English/Bengali; vector PDF statements and receipts; SSE support chat.
-  \item Tested in CI on GitHub Actions: Go integration tests under \texttt{-race}, Playwright e2e on phone and desktop, 400k-iteration money property tests, and a load test sustaining \textbf{\textasciitilde180 postings/s} that reconciles exactly.
+  \item Tested in CI on GitHub Actions: \textbf{269 Go tests} incl.\ integration tests under \texttt{-race}, Playwright e2e on phone and desktop, 400k-iteration money property tests, and a load test sustaining \textbf{\textasciitilde180 postings/s} that reconciles exactly.
   \item \textbf{45 Architecture Decision Records}, runbooks and post-mortems; monitored with Sentry, UptimeRobot, Prometheus.
 \end{itemize}}
-\entry{LocalFix — Civic Engagement Platform \textmd{\color{gray}(Team)}}
-{\linkto{https://github.com/saif-sakib/LocalFix}{GitHub}}
-{React (Vite), Node.js, Express.js, Oracle Database, JWT, Mapbox GL}
-{\begin{itemize}
-  \item Complaint management system where citizens report civic issues (roads, waste) to authorities; role-based access control and optimized Oracle SQL queries \textbf{cut data retrieval latency by 40\%}.
-\end{itemize}}
-\entry{HallBridge — Digital Hall Management System \textmd{\color{gray}(Team)}}
-{\linkto{https://github.com/Ragib100/HallBridge}{GitHub}}
-{Next.js, TypeScript, MongoDB (Mongoose), Tailwind CSS, Supabase, Express email service}
-{\begin{itemize}
-  \item Digitizes seat allocation, billing and notices for \textbf{500+ residents} with dashboards for students, staff and admins, plus a predictive meal-planning dining manager that brought food wastage to near-zero.
-\end{itemize}}
-\entry{QuestBoard — Gamified Q\&A Platform for STEM Students \textmd{\color{gray}(Team)}}
-{\linkto{https://github.com/Ragib100/QuestBoard}{GitHub}}
-{Flutter, FastAPI, SQLAlchemy, Supabase (Postgres, Auth, Storage), Claude API, Sentry}
-{\begin{itemize}
-  \item Students post ``quests'' with point bounties and accepted answers earn the points through a tested point ledger; GitHub Actions CI runs Ruff/Black, pytest and Flutter analyze, test and web build.
-\end{itemize}}
+\input{sections/projects/questboard}
+\input{sections/projects/hallbridge}
+\input{sections/projects/localfix}
+\input{sections/projects/mcc}
+\input{sections/projects/gyantori}
+\input{sections/projects/brutebuddy}
 
-\section{Experience \& Leadership}
-\entry{Industrial Trainee, JB Connect Ltd (JBC)}{2026 \textbar{} 4 weeks}{}
-{\begin{itemize}
-  \item Industry training in DevOps, backend and AI/ML, working on tasks with company teams; group project \linkto{https://github.com/JB-Connect-Ltd/content-automation-202605}{content-automation}.
-\end{itemize}}
-\entry{President, MIST Computer Club}{Jun 2026 -- Present}
-{Vice President (May 2025 -- Jun 2026) \textbar{} Executive Member (May 2024 -- May 2025)}
-{\begin{itemize}
-  \item Lead strategy and mentor \textbf{15+ core members} delivering \textbf{10+ technical events a year}; direct ICPC camps and workshops reaching \textbf{200+ students}.
-\end{itemize}}
-\entry{Competitive Programming Instructor, MIST Computer Club}{May 2024 -- Present}{}
-{\begin{itemize}
-  \item Mentor \textbf{50+ junior students} in algorithms with an \textbf{80\% retention rate}; curated 20+ problem sets and mock contests.
-\end{itemize}}
-
-\section{Competitive Programming}
-{\small \textbf{Codeforces} Specialist (max 1514) \textbar{} \textbf{CodeChef} 3-Star (max 1722) \textbar{} \textbf{1700+} problems solved on 5 online judges}
-\begin{results}
-BUP IAUPC 2025 & \rk{Champion} & ICPC Asia Dhaka Regional 2024 \textit{\color{gray}(univ.\ teams)} & \rk{117th} \\
-ICPC Asia Dhaka Regional 2025 \textit{\color{gray}(univ.\ teams)} & \rk{38th} & DUET IUPC 2025 \textbar{} NSUCEC IUPC 2026 & \rk{16th} \\
-\end{results}
+\input{sections/tools}
+\input{sections/experience}
+\input{sections/cp}
+\input{sections/leadership}
+\input{sections/cyber}
 
 \end{document}

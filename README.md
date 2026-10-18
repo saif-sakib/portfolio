@@ -4,9 +4,10 @@ Personal portfolio website plus the LaTeX CVs it links to.
 
 ```
 profile/contents.txt   Master profile — single source of truth for every fact
-cv/src/*.tex           CV sources (General, SWE, Cybersecurity, DevOps, AI/ML)
-cv/pdf/*.pdf           Built CVs (committed; the site serves these)
-cv/build.sh            Build CVs, check each is one page, clean aux files
+cv/src/*.tex           CV sources (General, SWE, Backend, Cybersecurity, DevOps, AI/ML)
+cv/src/sections/       Sections shared by every CV
+cv/pdf/*.pdf           Built CVs (gitignored; CI builds them for the site)
+cv/build.sh            Build CVs, check each is at most two pages, clean aux files
 site/                  Portfolio website (Astro, static)
   src/data/profile.ts  All site content, mirrored from contents.txt
   src/pages/index.astro
@@ -23,7 +24,7 @@ pnpm dev        # http://localhost:4321
 pnpm build      # static output in site/dist
 ```
 
-`pnpm dev`/`build` first copy `cv/pdf/*.pdf` into `site/public/cv/` (gitignored),
+Run `./cv/build.sh` once first: `pnpm dev`/`build` copy `cv/pdf/*.pdf` into `site/public/cv/` (gitignored),
 so the download links always serve the latest built CVs.
 
 To edit content, change `profile/contents.txt` first, then `site/src/data/profile.ts`.
@@ -37,6 +38,6 @@ Push to `main` on GitHub, then in the repo's **Settings → Pages** set the sour
 ## CVs
 
 ```sh
-./cv/build.sh            # all five
+./cv/build.sh            # all six
 ./cv/build.sh General    # just one
 ```

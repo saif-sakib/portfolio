@@ -4,15 +4,18 @@ This folder holds my CVs and my portfolio website for job applications.
 
 ## Layout
 - `profile/contents.txt` — **master profile, the single source of truth.** Every fact (contests, ranks, roles, dates, projects, skills, links) lives here first.
-- `cv/src/*.tex` → `cv/pdf/*.pdf` — the five CVs (below). Build with `./cv/build.sh [General|...]`.
+- `cv/src/*.tex` → `cv/pdf/*.pdf` — the six CVs (below). Build with `./cv/build.sh [General|...]`. `cv/pdf/` is gitignored: only the LaTeX is committed, and the deploy workflow builds the PDFs.
+- `cv/src/sections/` — sections shared by every CV (education, experience, leadership, CP, CTFs, tools, and one file per team project under `projects/`). Edit a shared fact there once.
 - `site/` — portfolio website (Astro, static, deployed to GitHub Pages by `.github/workflows/deploy.yml`). All content is in `site/src/data/profile.ts`, mirrored from `contents.txt`; styles in `site/src/styles/global.css`. `pnpm build` copies `cv/pdf/*.pdf` into `site/public/cv/` (gitignored).
 
 CVs:
+Every CV includes everything (all projects, results, roles); the variants differ only in the opening (headline, summary, highlight strip), the Hasnahena write-up, the skills table and the section order.
 - `Saif_Ahmed_CV_General.tex/.pdf` — general CV (SWE + CP + security).
-- `Saif_Ahmed_CV_Software_Engineering.tex/.pdf` — full-stack/SWE focus; CP condensed at the bottom.
+- `Saif_Ahmed_CV_Software_Engineering.tex/.pdf` — full-stack/SWE focus.
+- `Saif_Ahmed_CV_Backend.tex/.pdf` — backend engineering for remote roles: Hasnahena's Go API in depth, QuestBoard's FastAPI backend, my backend parts of the team projects; header location shows UTC+6.
 - `Saif_Ahmed_CV_Cybersecurity.tex/.pdf` — CTFs, security roles, BruteBuddy, secure-dev skills.
 - `Saif_Ahmed_CV_DevOps.tex/.pdf` — cloud hosting, CI/CD, containers, monitoring (Hasnahena, QuestBoard CI, HallBridge CD, MCC Docker).
-- `Saif_Ahmed_CV_AI_ML.tex/.pdf` — LLM integration (Claude API), Python tooling, algorithms. Thinnest variant; strengthen it as real AI/ML work is added to contents.txt.
+- `Saif_Ahmed_CV_AI_ML.tex/.pdf` — LLM integration (Claude API), Python tooling, algorithms. Strengthen it as real AI/ML work is added to contents.txt.
 
 ## Rules
 - **Never delete or drop facts from `contents.txt`.** Add new info there; mark outdated values instead of removing them.
@@ -21,13 +24,12 @@ CVs:
 - Only my own teams' results belong in `contents.txt` (my team names are listed there).
 - For group projects, don't claim specific parts as mine unless contents.txt says so.
 - Ranks: CVs use my rank "excluding BDOI teams" for ICPC Dhaka Regional; the official standings rank is recorded alongside it.
-- All five CVs share one style file, `cv/src/saifcv.sty` (Charter body, TeX Gyre Heros headings, navy accent; macros `\cvheader`, `\highlights`/`\stat`, `\entry`, `results`, `skills`). Change layout there, not in individual CVs. Each CV follows the same order: header → summary → highlight strip → sections.
-- Every CV must stay **one page**. `./cv/build.sh` runs `pdflatex -interaction=nonstopmode` into `cv/pdf/`, checks the page count with `pdfinfo`, and deletes `*.aux *.log *.out`.
+- All six CVs share one style file, `cv/src/saifcv.sty` (Charter body, TeX Gyre Heros headings, navy accent; macros `\cvheader[location]{headline}`, `\highlights`/`\stat`, `\entry`, `results`, `skills`). Change layout there, not in individual CVs. Each CV follows the same order: header → summary → highlight strip → sections.
+- Don't leave achievements out of a CV: every CV lists everything good from contents.txt. Every CV must stay within **two pages**. `./cv/build.sh` runs `pdflatex -interaction=nonstopmode` into `cv/pdf/`, checks the page count (max 2) with `pdfinfo`, and deletes `*.aux *.log *.out`.
 - When `contents.txt` changes, update `site/src/data/profile.ts` too. The site follows the same fact rules as the CVs; it omits the phone number on purpose (public page).
 - Section titles are uppercased, so the colour names are also defined in UPPERCASE (`ACCENT`, `LIGHTGRAY`); keep both versions.
 
 ## Open TODOs (from contents.txt)
 - Hasnahena: number of live members/transactions, if it can be published. Source repo: `../hasnahena` (docs/ has architecture, deployment, testing, scaling).
-- MCC website: my own contribution (local clone at `../mcc_website`; `git log --author` can show it).
 - Other local repos next to this folder: `../questboard`, `../content-automation-202605` (JBC), `../Bup-Hackathon`, `../HallBridge`, `../Code_Library`.
 - KUET IUPC 2025 rank: my notes say 88th, the standings say 89th.

@@ -100,9 +100,14 @@ const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
           <h3>{featured.name}</h3>
           <p class="featured-tagline">{featured.tagline}</p>
         </div>
-        <a class="btn" href={featured.href} target="_blank" rel="noopener">
-          Visit live site <Icon name="arrow" size={16} />
-        </a>
+        <div class="featured-actions">
+          <a class="btn" href={featured.href} target="_blank" rel="noopener">
+            Visit live site <Icon name="arrow" size={16} />
+          </a>
+          <a class="btn btn-ghost" href={featured.repo} target="_blank" rel="noopener">
+            <Icon name="github" size={16} /> Source
+          </a>
+        </div>
       </header>
 
       <p class="featured-summary">{featured.summary}</p>

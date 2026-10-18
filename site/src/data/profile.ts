@@ -10,7 +10,7 @@ export const person = {
     'CSE undergraduate at MIST building production software, competing at the ICPC Asia Dhaka Regional, and teaching web security.',
   about: [
     'I am a Computer Science & Engineering student at the Military Institute of Science and Technology (MIST), Dhaka, graduating in 2027. I am the sole developer of Hasnahena, an interest-free cooperative finance platform that has been live with real members since August 2026.',
-    'Competitive programming is where I learned to think: I am a Codeforces Specialist with 1700+ problems solved, my team won the BUP IAUPC 2025, and we placed 38th at the ICPC Asia Dhaka Regional 2025. I now lead the MIST Computer Club as President and mentor junior programmers.',
+    'Competitive programming is where I learned to think: I am a Codeforces Specialist with 1700+ problems solved, and my team placed 38th at the ICPC Asia Dhaka Regional 2025. I now lead the MIST Computer Club as President and mentor junior programmers.',
     'On the security side, I play CTFs with my university teams and taught OWASP Top 10 and penetration testing workshops as a Web Security Instructor at the MIST Cyber Security Club.',
   ],
 };
@@ -33,6 +33,7 @@ export const socials = [
 // PDFs are copied from ../cv/pdf at build time (scripts/sync-cv.mjs).
 export const cvs = [
   { label: 'General', file: 'Saif_Ahmed_CV_General.pdf', primary: true },
+  { label: 'Backend', file: 'Saif_Ahmed_CV_Backend.pdf' },
   { label: 'Software Engineering', file: 'Saif_Ahmed_CV_Software_Engineering.pdf' },
   { label: 'Cybersecurity', file: 'Saif_Ahmed_CV_Cybersecurity.pdf' },
   { label: 'DevOps', file: 'Saif_Ahmed_CV_DevOps.pdf' },
@@ -40,10 +41,10 @@ export const cvs = [
 ];
 
 export const glance = [
-  { value: 'Champion', label: 'BUP IAUPC 2025' },
   { value: '38th', label: 'ICPC Asia Dhaka Regional 2025' },
   { value: '1514', label: 'Codeforces max · Specialist' },
   { value: '1700+', label: 'Problems solved' },
+  { value: '5th', label: 'Cyber Drill 2025 CTF' },
 ];
 
 export const education = [
@@ -66,6 +67,7 @@ export const featured = {
   tagline: 'Interest-free cooperative finance platform',
   status: 'Live · Solo developer',
   href: 'https://hasnahenafoundation.com',
+  repo: 'https://github.com/saif-sakib/hasnahena',
   summary:
     'Digitises the passbook of Hasnahena Foundation, a community-run interest-free (Qard al-Hasan) cooperative in Jashore, Bangladesh. Live with real members, balances and identity documents since the cutover on 27 August 2026.',
   metrics: [
@@ -77,7 +79,7 @@ export const featured = {
   highlights: [
     {
       title: 'Architecture',
-      text: 'pnpm monorepo: Next.js 16 web app on Vercel and a Go API on Render that owns every balance-changing write, each in a single transaction. PostgreSQL on Neon with Prisma Migrate; fully bilingual English / Bengali.',
+      text: 'pnpm monorepo: Next.js 16 web app on Vercel and a Go API on Render that owns every balance-changing write, each in a single transaction with row-level locks; money is whole taka, never floats. PostgreSQL on Neon with Prisma Migrate; fully bilingual English / Bengali.',
     },
     {
       title: 'Security',
@@ -89,7 +91,7 @@ export const featured = {
     },
     {
       title: 'Testing',
-      text: 'Go integration tests against real Postgres under -race, Playwright e2e across phone/desktop × English/Bengali, 400k-iteration money arithmetic property tests, and gitleaks secret scanning in CI.',
+      text: '269 Go tests, including integration tests against real Postgres under -race, Playwright e2e across phone/desktop × English/Bengali, 400k-iteration money arithmetic property tests, and gitleaks secret scanning in CI.',
     },
   ],
   features: [
@@ -116,7 +118,7 @@ export const projects: Project[] = [
     tagline: 'Civic engagement platform',
     kind: 'Team project',
     description:
-      'Complaint management system where citizens report civic issues such as roads and waste to authorities. Role-based access control and optimized Oracle SQL queries that cut data retrieval latency by 40%.',
+      'Complaint management system where citizens report civic issues such as roads and waste to authorities. I built the Express API and the Oracle schema (triggers, stored procedures, views, indexes); role-based access control and optimized SQL queries cut data retrieval latency by 40%.',
     stack: ['React', 'Node.js', 'Express', 'Oracle DB', 'JWT', 'Mapbox GL'],
     href: 'https://github.com/saif-sakib/LocalFix',
   },
@@ -125,7 +127,7 @@ export const projects: Project[] = [
     tagline: 'Digital hall management system',
     kind: 'Team project',
     description:
-      'Seat allocation, billing and notices digitized for 500+ residents, with dedicated dashboards for students, staff and admins, and a smart dining manager with predictive meal planning.',
+      'Seat allocation, billing and notices digitized for 500+ residents, with dedicated dashboards for students, staff and admins, and a smart dining manager with predictive meal planning. I wrote most of the API and data models, including Google OAuth 2.0 sign-in, password reset and the indexes behind the busiest queries.',
     stack: ['Next.js', 'TypeScript', 'MongoDB', 'Tailwind', 'Supabase', 'GitHub Actions'],
     href: 'https://github.com/Ragib100/HallBridge',
   },
@@ -134,7 +136,7 @@ export const projects: Project[] = [
     tagline: 'Gamified Q&A for STEM students',
     kind: 'Team project',
     description:
-      'Post a “quest” with a point bounty; the accepted answer’s author earns the points. Tested point-ledger economy, documented API and schema, CI for both the Flutter client and the FastAPI server.',
+      'Post a “quest” with a point bounty; the accepted answer’s author earns the points. I built the whole FastAPI backend: an atomic point ledger, race-safe voting, Codeforces daily challenges, rate-limited LLM hints and 70 pytest tests, deployed on Render.',
     stack: ['Flutter', 'FastAPI', 'Supabase', 'Claude API', 'Sentry', 'pytest'],
     href: 'https://github.com/Ragib100/QuestBoard',
   },
@@ -143,7 +145,7 @@ export const projects: Project[] = [
     tagline: 'MIST Computer Club platform',
     kind: 'Team · In production',
     description:
-      'The club’s production website with a rich-text editor, in-browser code editor, a Discord bot and containerized services deployed through GitHub Actions.',
+      'The club’s production website with a rich-text editor, in-browser code editor, a Discord bot and containerized services deployed through GitHub Actions. I built the alumni directory (Hono API, migrations and pages) and closed an authorization gap on contest-report endpoints.',
     stack: ['Next.js', 'Bun', 'Hono', 'PostgreSQL', 'Docker', 'discord.js'],
     href: 'https://github.com/istiaqueahmedarik/mcc_website',
   },
@@ -218,7 +220,7 @@ export const iupc: Result[] = [
   { contest: 'NDUB IUPC 2026', team: 'MIST_EaglesClaw', rank: '32nd', of: '85', date: '2026' },
   { contest: 'CUET IUPC 2025', team: 'MIST_EagleForces', rank: '28th', of: '131', date: '2025' },
   { contest: 'MU CSE Fest IUPC 2025', team: 'MIST_EagleForces', rank: '49th', of: '99', date: '2025' },
-  { contest: 'BUP IAUPC 2025 (BUP CSE Tech Carnival)', team: 'MIST_EagleForces', rank: 'Champion', of: '28', date: '2025', highlight: true },
+  { contest: 'BUP IAUPC 2025 (BUP CSE Tech Carnival)', team: 'MIST_EagleForces', rank: 'Champion', of: '28', date: '2025' },
   { contest: 'Uttara University IUPC 2025', team: 'MIST_EagleForces', rank: '54th', of: '122', date: 'Jun 2025' },
   { contest: 'DUET IUPC 2025', team: 'MIST_ShuRZo', rank: '16th', of: '137', date: '2025' },
   { contest: 'AUST IUPC 2025', team: 'MIST_AlgorithmRejects', rank: '48th', of: '129', date: 'Feb 2025' },
@@ -267,10 +269,9 @@ export const experience: Role[] = [
     org: 'JB Connect Ltd (JBC)',
     period: '2026 · 4 weeks',
     points: [
-      'Industry training in DevOps, backend and AI/ML; worked on tasks with the company’s teams.',
-      'Group project with the training cohort:',
+      'Set up the FastAPI backend of the training cohort’s AI content-generation app: router → service → repository layers, env-driven settings, error handlers and a Docker dev setup.',
+      'Built the content-generation endpoint behind a mockable AI client, working through feature branches and pull requests, alongside sessions on DevOps, backend and AI/ML.',
     ],
-    link: { label: 'content-automation', href: 'https://github.com/JB-Connect-Ltd/content-automation-202605' },
   },
   {
     title: 'Competitive Programming Instructor',

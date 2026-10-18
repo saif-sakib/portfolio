@@ -2,7 +2,7 @@
  MASTER PROFILE — Md Saif Ahmed
  Single source of truth for CVs and portfolio. Raw, complete facts.
  Never delete entries; mark outdated values instead.
- Last organized: 2026-10-16
+ Last organized: 2026-10-17
 ================================================================
 
 ----------------------------------------------------------------
@@ -15,11 +15,14 @@ GitHub:      https://github.com/saif-sakib
 Codeforces:  https://codeforces.com/profile/Saif_Ahmed008
 LinkedIn:    https://www.linkedin.com/in/saif-ahmed-8a14651b0
 TryHackMe:   AhmedSakib
+Location:    Dhaka, Bangladesh (UTC+6) — open to remote work (stated 2026-10-17)
+Portfolio:   https://saif-sakib.github.io/portfolio/ — LIVE since 2026-10-18 (was 404 on 2026-10-17); in the CV header
 
 Headlines used in CVs:
 - Software Engineer · Competitive Programmer · Cybersecurity Practitioner (General CV)
 - Software Engineer · Full-Stack Developer · Competitive Programmer (SWE CV)
 - Cybersecurity Practitioner · Web Security Instructor · Competitive Programmer (Cyber CV)
+- Backend Software Engineer · Go · Python · PostgreSQL (Backend CV, for remote backend roles)
 
 ----------------------------------------------------------------
 2. EDUCATION
@@ -88,6 +91,8 @@ Rank: 54th of 122 (5 solved)
 
 BUP Programming Contest Powered by Brain Station 23 PLC, DSI Presents BUP CSE Tech Carnival 2025
 (Called "BUP IAUPC 2025" in CVs)
+Note (2026-10-18): small, low-profile contest (28 teams). Keep it in results tables only;
+  don't headline it in summaries, highlight strips or site stats.
 Team: MIST_EagleForces
 Rank: Champion (1st of 28, 6 solved)
 
@@ -202,6 +207,16 @@ Industrial Training at JBC (JB Connect Ltd) — 4 weeks (2026)
 - Learned many industry practices; attended sessions on DevOps, backend, AI/ML;
   did tasks with teams of the office.
 - Group project: https://github.com/JB-Connect-Ltd/content-automation-202605
+- The repo is PRIVATE (404 when logged out, checked 2026-10-17) — don't link it on CVs or the site.
+- App: a user enters a topic → an AI writes an article → it is saved and listed on a dashboard
+  (FastAPI backend, React + Vite frontend). Work went through feature branches and pull requests (#12–#27).
+My part (from git blame / git log, read 2026-10-17):
+- Set up the backend structure: router → service → repository layers, pydantic-settings config
+  (env-driven, CORS parsing), centralized exception handlers mapping domain errors to HTTP codes
+  (404 / 422 / 503 / 500), alembic.ini, Dockerfile and the Docker dev setup.
+- Built POST /api/v1/generate: GenerationService (prompt → AI client → save via ResultRepository) with a
+  mock AI client behind an injectable FastAPI dependency.
+- Not mine: the OpenAI client, prompt builder, results/delete routes, DB models/session, frontend.
 
 ----------------------------------------------------------------
 7. PROJECTS
@@ -215,6 +230,11 @@ Full stack (from repo): React (Vite), React Router, React Hook Form, Axios, Rech
 Team: Md Saif Ahmed, Md Shihab Ahmed, Md Ragib Hossain, Md Arafat Hasan, Md Saifuddin Shawon
 - Digital complaint management system for citizens to report civic issues (roads, waste) to authorities.
 - Role-Based Access Control (RBAC); optimized Oracle SQL queries, reducing data retrieval latency by 40%.
+My part (from git log --numstat on a fresh clone, read 2026-10-17): ~95% of server/ and ~99% of database/.
+- Express API (auth, issues, job proofs, payments, workers, uploads) with Helmet, express-rate-limit,
+  express-validator, JWT, bcryptjs, Multer, Nodemailer, oracledb.
+- Oracle schema as numbered SQL migrations: 14 triggers, 3 stored procedures, 1 function, 3 views,
+  27 indexes, 2 sequences; seed data. Also a large share of the React client.
 
 HallBridge — Digital Hall Management System (Group project, academic)
 https://github.com/Ragib100/HallBridge
@@ -225,6 +245,16 @@ Full stack (from repo): Next.js 16, React 19, TypeScript, Tailwind CSS 4, MUI, R
 - Three roles (Students, Staff with sub-roles, Admins) with dedicated dashboards.
 - Digitized seat allocation, billing and notices for 500+ residents.
 - Smart dining manager with predictive meal planning, reducing food wastage to near-zero.
+My part (from git blame, read 2026-10-17): ~64% of the current API code (src/app/api) and ~81% of the
+  Mongoose models (src/models).
+- API routes: admin users/rooms/staff/stats, staff financials/expenses/security logs, student billing,
+  maintenance, laundry, notifications; auth — register, login, Google sign-in callback (OAuth 2.0
+  authorization-code flow with a CSRF state cookie, 138/144 lines mine), forgot/reset password
+  (expiring reset tokens, bcrypt).
+- src/lib/email.ts and src/lib/notifications.ts; seed and clear scripts (scripts/seeds).
+- "Database optimized" commit (2026-02-01): compound indexes for common query patterns, .lean() reads
+  and field projection, autoIndex off in production.
+- NOT mine: the separate Express email server and its GitHub Actions deploy-to-VM workflow (a teammate).
 
 GyanTori — Peer-to-Peer Book Sharing (Group project, academic)
 https://github.com/saif-sakib/GyanTori
@@ -240,9 +270,26 @@ Stack: Flutter (mobile + web) | FastAPI, Uvicorn, Pydantic, SQLAlchemy, psycopg 
   Auth, Storage) | JWT | Sentry | Anthropic Claude API | pytest, Ruff, Black | GitHub Actions CI
   (lint + format, Flutter analyze/test/web build, server tests) | Vercel (client)
 - Point ledger / economy logic with tests; documented API, architecture and DB schema.
+My part (from git blame, read 2026-10-17): all of the current server code (7,168 of 7,168 lines of
+  Python/SQL; ~93% of all server-side insertions — a teammate wrote the first scaffolding).
+- FastAPI API: 7 routers, ~40 endpoints (users, questions, answers + votes, gamification, daily
+  challenges, AI hints, admin); Supabase token verification as a FastAPI dependency.
+- PostgreSQL schema (schema.sql): CHECK and UNIQUE constraints (the unique constraint makes vote
+  toggling race-safe), GIN trigram indexes for search, RLS policies, updated_at trigger.
+- Point ledger: PointService is the only writer of balances; each movement writes a ledger row and the
+  cached balance in the same transaction, so a bounty transfer debits and credits atomically.
+- Codeforces API client: daily challenge (rated 800–1600), handle verification within a 30-minute
+  window, paginated submission scans, 8 s timeouts mapped to honest 502/503 errors.
+- LLM hints (Anthropic Claude API, or any OpenAI-compatible API): Socratic-tutor prompt, 3 per hour per
+  user, paid in points and deducted in the same transaction so a failed call refunds.
+- 70 pytest tests (economy 28, challenges 42) and the CI "economy" job that runs them against a real
+  Postgres; 50 numbered design decisions in docs/decisions.md (mostly mine).
+- API deployed on Render: https://questboard-mccq.onrender.com/api/ (free tier, ~40 s cold start;
+  answered 200 on 2026-10-17).
+- The CI workflow was first written by a teammate; I added the Postgres-backed economy job.
 
 hasnahena (Only me as developer — in production)
-https://github.com/saif-sakib/hasnahena   (private repo)
+https://github.com/saif-sakib/hasnahena   (PUBLIC since 2026-10-18 — link it on CVs and the site; was private before)
 Live: https://hasnahenafoundation.com   (MIT licensed; solo project by Md Saif Ahmed)
 Stack / infra (from my notes): PostgreSQL on Neon, Vercel, Render, Cloudflare, Cloudinary (media),
   Sentry (error monitoring), UptimeRobot (uptime monitoring), GitHub Actions (CI/CD)
@@ -269,6 +316,19 @@ Architecture:
 - PostgreSQL on Neon (19 Prisma models, 15 migrations; Prisma Migrate). Brevo for email, Cloudinary for media.
 - Cloudflare: DNS (proxied apex/www/api), TLS, Email Routing, R2 (off-site backups), Worker warm-up cron.
 - Size: 81 Go files (45 test files), 288 TS/TSX files (63 unit/route test files), 16 Playwright e2e specs.
+
+Backend details (from repo, read 2026-10-17):
+- Go API: 60+ REST endpoints on chi (auth, member, worker, approvals, loans, donations, reports,
+  support); /v1/health and /v1/ready probes. 269 Go test functions (in the 45 test files).
+- Concurrency: postings run in one pgx transaction with SELECT … FOR UPDATE row locks on the accounts,
+  loans and requests they touch; pg_advisory_xact_lock serialises account-number assignment.
+- Money: whole taka as BigInt / int64, never float; Postgres CHECK constraints (non-negative balances,
+  positive amounts, remaining ≤ principal, installments in range, zero application fee).
+- pgxpool with configurable max/min connections; HTTP read/write/idle timeouts; graceful shutdown on
+  SIGTERM that ends SSE streams first, then drains in-flight requests; log/slog structured logging.
+- Rate limiter: in-memory per-client buckets on mutating routes (idle TTL, 50k-client cap, fails open);
+  client address resolved once at boot — trusted proxies / Cloudflare (ADR-019).
+- GitHub Actions workflows in the repo: ci, images (GHCR), backup, monitor — no deploy workflow.
 
 Security:
 - RBAC on every protected endpoint; bcrypt; self-hosted JWT with server-side revocation checked by BOTH
@@ -313,7 +373,15 @@ Stack (from repo): Next.js, React, Tailwind CSS, shadcn/Radix UI, TanStack Query
   (Google/OpenAI), UploadThing, Supabase | Bun + Hono backend, PostgreSQL, JWT, Nodemailer,
   Discord bot (discord.js), Cheerio scraping | Docker + Docker Compose (frontend, backend, bot),
   GitHub Actions (deploy + pull-request workflows)
-[TODO: note my own part in this project]
+My part (from git log --author, read 2026-10-17; 14 of 389 commits, Mar–Apr 2026):
+- Alumni directory end to end: Hono API (public listing + JWT-protected admin CRUD for batches and
+  members; alumniController.ts ~98% mine), PostgreSQL migrations for the alumni fields, and the
+  Next.js alumni page, member cards and admin page.
+- Landing-page admin: CRUD helpers in landingController.ts + LandingAdminClient.
+- Contest-report rooms: input validation, idempotent "add contest to room", 404 for unknown rooms, and an
+  authorization fix — room/contest read endpoints now require an admin (the check previously accepted
+  any signed-in user); "TFC percentage" in generated reports.
+[TODO resolved 2026-10-17 — was: note my own part in this project]
 
 BruteBuddy — Automated Security Testing Tool (Script)
 https://github.com/saif-sakib/Brute-Buddy
@@ -368,7 +436,10 @@ Tools & DevOps: Git, GitHub, Linux (Arch/Ubuntu), Docker, Burp Suite, Postman, P
 (Full inventory — everything I've used, with where. Pick from this per job.)
 Languages:        C++, Go, Python, JavaScript, TypeScript, Java, Dart (Flutter), SQL, Bash, Google Apps Script, LaTeX
 Go:               chi, pgx, golang-jwt, Prometheus client, sentry-go, golangci-lint, race detector (Hasnahena)
+                  + pgxpool, log/slog, graceful shutdown, SELECT … FOR UPDATE, advisory locks (Hasnahena)
 ORM / data:       Prisma (Migrate), SQLAlchemy, Mongoose, pgx; DB triggers, CHECK constraints, transactions
+                  + Oracle PL/SQL: triggers, stored procedures, views (LocalFix); RLS, pg_trgm GIN indexes
+                  (QuestBoard); MongoDB compound indexes (HallBridge); Alembic, pydantic-settings (JBC)
 i18n:             next-intl (English/Bengali)
 Frontend:         React, Next.js, Vite, Tailwind CSS, shadcn/ui, Radix UI, MUI, React Router, React Hook Form,
                   TanStack Query, Recharts, Mapbox GL, Framer Motion, HTML5, CSS3
@@ -385,6 +456,7 @@ Monitoring:       Sentry (error tracking), UptimeRobot (uptime monitoring), Prom
 Backup & DR:      encrypted pg_dump backups to Cloudflare R2, restore drills in CI, RPO/RTO planning
 Email & media:    Brevo, Resend, Nodemailer, Cloudinary, Multer, UploadThing, jsPDF, ReportLab (PDF generation)
 AI/LLM:           Anthropic Claude API (QuestBoard), Vercel AI SDK with Google/OpenAI (MCC website)
+                  + OpenAI-compatible APIs (QuestBoard hints), mock AI client for tests/dev (JBC)
 Testing/quality:  Playwright (e2e), Vitest, Go testing (unit, integration, property, load), pytest, Ruff, Black,
                   ESLint, golangci-lint, Flutter analyze/test
 Security (dev):   gitleaks (secret scanning), CSP, token revocation, audit logs, anti-enumeration
@@ -393,11 +465,13 @@ Automation:       Selenium, undetected-chromedriver, BeautifulSoup, Cheerio, req
 Security tools:   Burp Suite, Wireshark, Packet Tracer, PortSwigger labs, TryHackMe, own tool BruteBuddy
 Other tools:      Postman, Linux (Arch/Ubuntu), Discord bots (discord.js)
 [TODO: add anything else used at JBC]
+JBC (from repo): FastAPI, SQLAlchemy, Alembic, pydantic-settings, Docker, pytest/Ruff/Black (in requirements)
 
 ----------------------------------------------------------------
 10. CV SUMMARY LINES (reusable)
 ----------------------------------------------------------------
-- Competitive programmer with a Champion finish at BUP IAUPC 2025 and ICPC Asia Dhaka Regional ranks (38th in 2025, 117th in 2024).
+- [OUTDATED 2026-10-18: don't headline BUP IAUPC] Competitive programmer with a Champion finish at BUP IAUPC 2025 and ICPC Asia Dhaka Regional ranks (38th in 2025, 117th in 2024).
+- Competitive programmer: 38th at ICPC Asia Dhaka Regional 2025 (117th in 2024), Codeforces Specialist, 1700+ problems solved.
 - Built full-stack systems using React/Next.js, Node.js, and MongoDB/Oracle to solve real campus and civic problems.
 - Cybersecurity practitioner and instructor focused on OWASP Top 10, penetration testing, and CTFs (Rank 5 in Cyber Drill 2025).
 - Full-stack developer building React/Next.js + Node.js systems with SQL/NoSQL backends (LocalFix, HallBridge, GyanTori).
