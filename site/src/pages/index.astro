@@ -3,8 +3,9 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import SectionHead from '../components/SectionHead.astro';
 import ResultTable from '../components/ResultTable.astro';
+import ArchDiagram from '../components/ArchDiagram.astro';
 import {
-  person, links, socials, cvs, glance, education, featured, projects,
+  person, links, socials, cvs, glance, education, featured, projects, tools,
   cpProfiles, icpc, iupc, otherCp, ctfs, training, certifications,
   experience, hackathons, skills,
 } from '../data/profile';
@@ -12,16 +13,19 @@ import {
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const cvHref = (file: string) => `${base}cv/${file}`;
 const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
+// Split the inter-university results into two balanced columns.
+const iupcSplit = Math.ceil(iupc.length / 2);
 ---
 
 <Base>
   <!-- Hero -->
   <section class="hero container">
     <div class="hero-text">
-      <p class="eyebrow"><Icon name="pin" size={14} /> {person.location}</p>
+      <p class="eyebrow"><Icon name="pin" size={14} /> {person.location} · {person.timezone}</p>
       <h1>{person.name}</h1>
       <p class="headline">{person.headline}</p>
       <p class="lede">{person.intro}</p>
+      <p class="availability"><span class="dot"></span>{person.availability}</p>
 
       <div class="hero-actions">
         <a class="btn" href={cvHref(primaryCv.file)} target="_blank" rel="noopener">
@@ -121,6 +125,8 @@ const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
         ))}
       </dl>
 
+      <ArchDiagram />
+
       <div class="featured-grid">
         {featured.highlights.map((h) => (
           <div class="featured-point">
@@ -151,12 +157,25 @@ const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
           <h4>{p.name}</h4>
           <p class="project-tagline">{p.tagline}</p>
           <p class="project-desc">{p.description}</p>
+          {p.role && (
+            <p class="project-role"><span>My part</span>{p.role}</p>
+          )}
           <ul class="chips chips-small">
             {p.stack.map((s) => <li>{s}</li>)}
           </ul>
         </a>
       ))}
     </div>
+    <h3 class="mini-title projects-title">Tools &amp; scripts</h3>
+    <ul class="tools">
+      {tools.map((t) => (
+        <li>
+          <a href={t.href} target="_blank" rel="noopener">{t.name} <Icon name="arrow" size={13} /></a>
+          <p>{t.text}</p>
+          <p class="tool-stack">{t.stack}</p>
+        </li>
+      ))}
+    </ul>
     <p class="more-link">
       <a href={links.github} target="_blank" rel="noopener">More on GitHub <Icon name="arrow" size={14} /></a>
     </p>
@@ -179,17 +198,18 @@ const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
       })}
     </div>
 
+    <h3 class="mini-title">ICPC Asia Dhaka Regional</h3>
     <div class="results">
-      <div>
-        <h3 class="mini-title">ICPC Asia Dhaka Regional</h3>
-        <ResultTable rows={icpc} />
-      </div>
-      <div>
-        <h3 class="mini-title">Inter-university contests</h3>
-        <ResultTable rows={iupc} />
-        <p class="muted small">{otherCp}</p>
-      </div>
+      <ResultTable rows={icpc.slice(0, 2)} />
+      <ResultTable rows={icpc.slice(2)} />
     </div>
+
+    <h3 class="mini-title results-gap">Inter-university contests <span class="count">{iupc.length}</span></h3>
+    <div class="results">
+      <ResultTable rows={iupc.slice(0, iupcSplit)} />
+      <ResultTable rows={iupc.slice(iupcSplit)} />
+    </div>
+    <p class="muted small results-foot">{otherCp}</p>
   </section>
 
   <!-- Security -->
@@ -246,6 +266,13 @@ const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
           <p class="tl-period">{r.period}</p>
           <div class="tl-body">
             <h4>{r.title} <span class="muted">· {r.org}</span></h4>
+            {r.path && (
+              <ol class="tl-path" aria-label="Roles held">
+                {r.path.map((step) => (
+                  <li><strong>{step.title}</strong> {step.period}</li>
+                ))}
+              </ol>
+            )}
             <ul>
               {r.points.map((pt, i) => (
                 <li>
@@ -283,9 +310,13 @@ const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
       <p class="eyebrow">07 — Contact</p>
       <h2>Let’s build something reliable.</h2>
       <p class="lede">
-        I’m open to internships, software engineering roles and collaborations. The quickest way to reach me is email.
+        I’m open to software engineering roles, internships and collaborations, including remote work ({person.timezone}).
+        The quickest way to reach me is email.
       </p>
-      <a class="contact-mail" href={`mailto:${links.email}`}>{links.email}</a>
+      <div class="contact-mail-row">
+        <a class="contact-mail" href={`mailto:${links.email}`}>{links.email}</a>
+        <button class="btn btn-ghost btn-small copy-btn" type="button" data-copy={links.email}>Copy</button>
+      </div>
       <ul class="contact-links">
         {socials.map((s) => (
           <li>

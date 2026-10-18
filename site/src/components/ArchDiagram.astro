@@ -1,0 +1,70 @@
+---
+// Hasnahena's production architecture (facts from contents.txt → hasnahena).
+// Inline SVG coloured by the site's CSS tokens, so it follows light/dark mode.
+type Node = { x: number; y: number; w: number; title: string; sub: string; key?: boolean };
+
+const H = 76;
+const nodes: Node[] = [
+  { x: 10, y: 112, w: 150, title: 'Users', sub: 'members · staff' },
+  { x: 210, y: 112, w: 140, title: 'Cloudflare', sub: 'DNS · TLS · proxy' },
+  { x: 410, y: 34, w: 200, title: 'Next.js 16 web app', sub: 'Vercel · Prisma' },
+  { x: 410, y: 190, w: 200, title: 'Go API (chi, pgx)', sub: 'Render · every money write', key: true },
+  { x: 670, y: 112, w: 150, title: 'PostgreSQL', sub: 'Neon · row locks' },
+  { x: 880, y: 112, w: 150, title: 'Cloudflare R2', sub: 'encrypted backups' },
+];
+
+// [x1, y1, x2, y2, dashed?]
+const arrows: [number, number, number, number, boolean?][] = [
+  [160, 150, 208, 150],
+  [350, 140, 408, 80],
+  [350, 160, 408, 220],
+  [610, 72, 668, 138],
+  [610, 228, 668, 162],
+  [820, 150, 878, 150, true],
+];
+---
+
+<figure class="arch">
+  <div class="arch-scroll">
+    <svg viewBox="0 0 1040 360" role="img" aria-labelledby="arch-title arch-desc">
+      <title id="arch-title">Hasnahena architecture</title>
+      <desc id="arch-desc">
+        Users reach Cloudflare, which proxies a Next.js web app on Vercel and a Go API on Render. Both use PostgreSQL on
+        Neon; the Go API owns every balance-changing write. Encrypted daily backups go to Cloudflare R2. GitHub Actions
+        runs CI, image builds, backups and monitoring; Sentry, UptimeRobot and Prometheus watch production.
+      </desc>
+      <defs>
+        <marker id="arch-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" class="arch-headfill" />
+        </marker>
+      </defs>
+
+      {arrows.map(([x1, y1, x2, y2, dashed]) => (
+        <line x1={x1} y1={y1} x2={x2} y2={y2} class:list={['arch-line', { dashed }]} marker-end="url(#arch-head)" />
+      ))}
+      <text x="849" y="140" class="arch-note" text-anchor="middle">daily</text>
+
+      {nodes.map((n) => (
+        <g class:list={['arch-node', { key: n.key }]}>
+          <rect x={n.x} y={n.y} width={n.w} height={H} rx="10" />
+          <text x={n.x + n.w / 2} y={n.y + 33} text-anchor="middle" class="arch-title">{n.title}</text>
+          <text x={n.x + n.w / 2} y={n.y + 55} text-anchor="middle" class="arch-sub">{n.sub}</text>
+        </g>
+      ))}
+
+      <g class="arch-band">
+        <rect x="10" y="296" width="1020" height="52" rx="10" />
+        <text x="34" y="327">
+          <tspan class="arch-strong">GitHub Actions</tspan>
+          <tspan class="arch-sub" dx="10">CI · images to GHCR · daily backup + restore drill · monitor</tspan>
+        </text>
+        <line x1="612" y1="310" x2="612" y2="334" class="arch-divider" />
+        <text x="636" y="327">
+          <tspan class="arch-strong">Observability</tspan>
+          <tspan class="arch-sub" dx="10">Sentry · UptimeRobot · Prometheus</tspan>
+        </text>
+      </g>
+    </svg>
+  </div>
+  <figcaption>How it runs in production, entirely on free tiers today.<span class="arch-hint"> Swipe to see the full diagram.</span></figcaption>
+</figure>

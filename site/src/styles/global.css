@@ -348,6 +348,19 @@ ol {
   margin: 32px 0 28px;
 }
 
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 6px 14px 6px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+
 .cv-menu {
   position: relative;
 }
@@ -778,6 +791,52 @@ a.project:hover .project-arrow {
   flex: 1;
 }
 
+.project-role {
+  font-size: 0.88rem;
+  color: var(--ink-2);
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: -4px 0 16px;
+}
+
+.project-role span {
+  display: block;
+  font: 500 0.68rem/1.6 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+}
+
+.tools li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tools a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: 600 1.02rem/1.4 var(--serif);
+}
+
+.tools p {
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+
+.tools .tool-stack {
+  font: 400 0.75rem/1.6 var(--mono);
+  color: var(--muted);
+  margin-top: 2px;
+}
+
 .more-link {
   margin-top: 20px;
   font-size: 0.95rem;
@@ -787,6 +846,86 @@ a.project:hover .project-arrow {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+}
+
+/* ───────────── Architecture diagram ───────────── */
+.arch {
+  margin: 0 0 36px;
+}
+
+.arch-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--bg);
+  padding: 18px 16px 12px;
+}
+
+.arch svg {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+  font-family: var(--sans);
+}
+
+.arch-node rect {
+  fill: var(--surface);
+  stroke: var(--rule);
+  stroke-width: 1.5;
+}
+
+.arch-node.key rect {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+}
+
+.arch-title,
+.arch-strong {
+  fill: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.arch-sub,
+.arch-note {
+  fill: var(--muted);
+  font-size: 13.5px;
+}
+
+.arch-line {
+  stroke: var(--muted);
+  stroke-width: 1.6;
+}
+
+.arch-line.dashed {
+  stroke-dasharray: 5 5;
+}
+
+.arch-divider {
+  stroke: var(--rule);
+  stroke-width: 1.5;
+}
+
+.arch-headfill {
+  fill: var(--muted);
+}
+
+.arch-band rect {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6;
+}
+
+.arch-hint {
+  display: none;
+}
+
+.arch figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 /* ───────────── Competitive ───────────── */
@@ -821,8 +960,21 @@ a.project:hover .project-arrow {
   align-items: start;
 }
 
-.results .small {
+.results-gap {
+  margin-top: 40px;
+}
+
+.results-foot {
   margin-top: 14px;
+}
+
+.mini-title .count {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--muted);
 }
 
 .results-table {
@@ -1043,6 +1195,32 @@ a.project:hover .project-arrow {
   font-style: italic;
 }
 
+.tl-path {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.tl-path li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tl-path li + li::before {
+  content: '→';
+  margin: 0 10px;
+  color: var(--accent);
+}
+
+.tl-path strong {
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
 .tl-body ul li {
   position: relative;
   padding-left: 16px;
@@ -1103,6 +1281,19 @@ a.project:hover .project-arrow {
   border-bottom: 2px solid var(--accent);
   padding-bottom: 2px;
   overflow-wrap: anywhere;
+}
+
+.contact-mail-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 28px 0 32px;
+}
+
+.contact-mail-row .contact-mail {
+  margin: 0;
 }
 
 .contact-mail:hover {
@@ -1267,6 +1458,7 @@ a.project:hover .project-arrow {
   .featured-grid,
   .checks,
   .projects,
+  .tools,
   .profiles {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1300,5 +1492,8 @@ a.project:hover .project-arrow {
   }
   .glance {
     padding: 22px;
+  }
+  .arch-hint {
+    display: inline;
   }
 }

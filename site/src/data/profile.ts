@@ -6,6 +6,8 @@ export const person = {
   shortName: 'Saif Ahmed',
   headline: 'Software Engineer · Competitive Programmer · Cybersecurity Practitioner',
   location: 'Dhaka, Bangladesh',
+  timezone: 'UTC+6',
+  availability: 'Open to software engineering roles and internships, including remote work',
   intro:
     'CSE undergraduate at MIST building production software, competing at the ICPC Asia Dhaka Regional, and teaching web security.',
   about: [
@@ -106,20 +108,32 @@ export const featured = {
 export type Project = {
   name: string;
   tagline: string;
-  kind: 'Team project' | 'Solo' | 'Script' | 'Team · In production';
+  kind: 'Team project' | 'Solo' | 'Team · In production';
   description: string;
+  role?: string; // my own part, only where contents.txt records it
   stack: string[];
   href: string;
 };
 
 export const projects: Project[] = [
   {
+    name: 'QuestBoard',
+    tagline: 'Gamified Q&A for STEM students',
+    kind: 'Team project',
+    description:
+      'Post a “quest” with a point bounty; the accepted answer’s author earns the points. Flutter client, FastAPI backend on Supabase Postgres.',
+    role: 'Wrote all of the current server code: ~40 FastAPI endpoints, an atomic point ledger, race-safe voting, Codeforces daily challenges, Claude API hints refunded on failure, and 70 pytest tests run in CI against real Postgres. Deployed on Render.',
+    stack: ['FastAPI', 'PostgreSQL', 'Claude API', 'pytest', 'Flutter', 'Sentry'],
+    href: 'https://github.com/Ragib100/QuestBoard',
+  },
+  {
     name: 'LocalFix',
     tagline: 'Civic engagement platform',
     kind: 'Team project',
     description:
-      'Complaint management system where citizens report civic issues such as roads and waste to authorities. I built the Express API and the Oracle schema (triggers, stored procedures, views, indexes); role-based access control and optimized SQL queries cut data retrieval latency by 40%.',
-    stack: ['React', 'Node.js', 'Express', 'Oracle DB', 'JWT', 'Mapbox GL'],
+      'Complaint management system where citizens report civic issues such as roads and waste to authorities. Role-based access control and optimized Oracle SQL queries cut data retrieval latency by 40%.',
+    role: 'Wrote ~95% of the Express API and the Oracle schema: 14 triggers, 3 stored procedures, 3 views and 27 indexes as numbered migrations.',
+    stack: ['React', 'Express', 'Oracle DB', 'PL/SQL', 'JWT', 'Mapbox GL'],
     href: 'https://github.com/saif-sakib/LocalFix',
   },
   {
@@ -127,36 +141,20 @@ export const projects: Project[] = [
     tagline: 'Digital hall management system',
     kind: 'Team project',
     description:
-      'Seat allocation, billing and notices digitized for 500+ residents, with dedicated dashboards for students, staff and admins, and a smart dining manager with predictive meal planning. I wrote most of the API and data models, including Google OAuth 2.0 sign-in, password reset and the indexes behind the busiest queries.',
-    stack: ['Next.js', 'TypeScript', 'MongoDB', 'Tailwind', 'Supabase', 'GitHub Actions'],
+      'Seat allocation, billing and notices digitized for 500+ residents, with dashboards for students, staff and admins, and a dining manager whose predictive meal planning brought food wastage to near-zero.',
+    role: 'Wrote ~64% of the API and ~81% of the data models, including Google OAuth 2.0 sign-in, password reset and the indexes behind the busiest queries.',
+    stack: ['Next.js', 'TypeScript', 'MongoDB', 'OAuth 2.0', 'Tailwind', 'Supabase'],
     href: 'https://github.com/Ragib100/HallBridge',
-  },
-  {
-    name: 'QuestBoard',
-    tagline: 'Gamified Q&A for STEM students',
-    kind: 'Team project',
-    description:
-      'Post a “quest” with a point bounty; the accepted answer’s author earns the points. I built the whole FastAPI backend: an atomic point ledger, race-safe voting, Codeforces daily challenges, rate-limited LLM hints and 70 pytest tests, deployed on Render.',
-    stack: ['Flutter', 'FastAPI', 'Supabase', 'Claude API', 'Sentry', 'pytest'],
-    href: 'https://github.com/Ragib100/QuestBoard',
   },
   {
     name: 'MCC Website',
     tagline: 'MIST Computer Club platform',
     kind: 'Team · In production',
     description:
-      'The club’s production website with a rich-text editor, in-browser code editor, a Discord bot and containerized services deployed through GitHub Actions. I built the alumni directory (Hono API, migrations and pages) and closed an authorization gap on contest-report endpoints.',
+      'The club’s production website with a rich-text editor, in-browser code editor, a Discord bot and containerized services deployed through GitHub Actions.',
+    role: 'Built the alumni directory end to end (Hono API, migrations, pages) and fixed broken access control on the contest-report endpoints.',
     stack: ['Next.js', 'Bun', 'Hono', 'PostgreSQL', 'Docker', 'discord.js'],
     href: 'https://github.com/istiaqueahmedarik/mcc_website',
-  },
-  {
-    name: 'GyanTori',
-    tagline: 'Peer-to-peer book sharing',
-    kind: 'Team project',
-    description:
-      'Desktop virtual library for 500+ students to lend, borrow and catalog books, backed by a MongoDB schema for inventory relationships and transaction history.',
-    stack: ['Java', 'JavaFX', 'Maven', 'MongoDB'],
-    href: 'https://github.com/saif-sakib/GyanTori',
   },
   {
     name: 'BruteBuddy',
@@ -168,31 +166,41 @@ export const projects: Project[] = [
     href: 'https://github.com/saif-sakib/Brute-Buddy',
   },
   {
-    name: 'Rank-Raven',
-    tagline: 'Codeforces contest reporter',
-    kind: 'Script',
+    name: 'GyanTori',
+    tagline: 'Peer-to-peer book sharing',
+    kind: 'Team project',
     description:
-      'Counts each user’s solves over the last 30 days through the Codeforces API, merges them with student levels and generates a styled multi-page PDF report.',
-    stack: ['Python', 'Selenium', 'BeautifulSoup', 'ReportLab'],
+      'Desktop virtual library for 500+ students to lend, borrow and catalog books, backed by a MongoDB schema for inventory relationships and transaction history.',
+    stack: ['Java', 'JavaFX', 'Maven', 'MongoDB'],
+    href: 'https://github.com/saif-sakib/GyanTori',
+  },
+];
+
+// Small tools and scripts, shown as a compact list.
+export const tools = [
+  {
+    name: 'Rank-Raven',
+    text: 'Codeforces reporter: counts each user’s solves over 30 days via the API and generates a styled PDF report.',
+    stack: 'Python · Selenium · ReportLab',
     href: 'https://github.com/saif-sakib/Rank-Raven',
   },
   {
     name: 'upsolve_tracker',
-    tagline: 'Codeforces upsolve planner',
-    kind: 'Script',
-    description:
-      'Pulls near-miss problems, schedules them over the coming days, times solves and detects AC automatically, with vjudge sync and a dashboard.',
-    stack: ['Apps Script', 'Google Sheets', 'Codeforces API', 'clasp'],
+    text: 'Schedules near-miss Codeforces problems, times solves and detects AC automatically; vjudge sync.',
+    stack: 'Apps Script · Sheets · Codeforces API',
     href: 'https://github.com/saif-sakib/upsolve_tracker',
   },
   {
     name: 'Code-Library',
-    tagline: 'MIST_EagleForces ICPC notebook',
-    kind: 'Script',
-    description:
-      'Team notebook of code snippets and math notes, with a Python build script that generates the contest PDF.',
-    stack: ['C++', 'LaTeX', 'Python', 'Pygments'],
+    text: 'MIST_EagleForces ICPC team notebook, with a Python script that builds the contest PDF.',
+    stack: 'C++ · LaTeX · Python',
     href: 'https://github.com/saif-sakib/Code-Library',
+  },
+  {
+    name: 'Faculty-Evaluation',
+    text: 'Automates the university’s faculty evaluation form, with a step-by-step Windows guide.',
+    stack: 'Python · Selenium',
+    href: 'https://github.com/saif-sakib/Faculty-Evaluation',
   },
 ];
 
@@ -252,16 +260,29 @@ export const certifications = [
   'eShikhon Ethical Hacking Live Course',
 ];
 
-export type Role = { title: string; org: string; period: string; points: string[]; link?: { label: string; href: string } };
+export type Role = {
+  title: string;
+  org: string;
+  period: string;
+  points: string[];
+  path?: { title: string; period: string }[]; // progression within the same org
+  link?: { label: string; href: string };
+};
 
 export const experience: Role[] = [
   {
     title: 'President',
     org: 'MIST Computer Club',
-    period: 'Jun 2026 – Present',
+    period: 'May 2024 – Present',
+    path: [
+      { title: 'Executive Member', period: 'May 2024' },
+      { title: 'Vice President', period: 'May 2025' },
+      { title: 'President', period: 'Jun 2026' },
+    ],
     points: [
       'Leading club strategy and mentoring 15+ core members to deliver 10+ technical events a year.',
       'Directing ICPC preparation camps and workshops that reach 200+ students.',
+      'As Vice President, coordinated programming workshops and contest initiatives and supported training for junior members; as Executive Member, handled event logistics and community training.',
     ],
   },
   {
@@ -283,28 +304,16 @@ export const experience: Role[] = [
     ],
   },
   {
-    title: 'Executive Director',
-    org: 'Mentor Committee',
-    period: 'Jun 2025 – Jun 2026',
-    points: ['Coordinated security mentoring initiatives and learning tracks.'],
-  },
-  {
-    title: 'Vice President',
-    org: 'MIST Computer Club',
-    period: 'May 2025 – Jun 2026',
-    points: ['Coordinated programming workshops and contest initiatives; supported event operations and training programs for junior members.'],
-  },
-  {
     title: 'Web Security Instructor',
     org: 'MIST Cyber Security Club',
     period: 'May 2024 – Jun 2026',
     points: ['Ran hands-on OWASP Top 10 workshops with real-world exploitation scenarios; trained 30+ students in penetration testing and secure coding.'],
   },
   {
-    title: 'Executive Member',
-    org: 'MIST Computer Club',
-    period: 'May 2024 – May 2025',
-    points: ['Contributed to event logistics and community training activities.'],
+    title: 'Executive Director',
+    org: 'Mentor Committee',
+    period: 'Jun 2025 – Jun 2026',
+    points: ['Coordinated security mentoring initiatives and learning tracks.'],
   },
 ];
 
