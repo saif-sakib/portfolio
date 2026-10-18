@@ -19,6 +19,9 @@ site/public/cv/
 *.fdb_latexmk
 *.synctex.gz
 
+# Private job-search notes (kept local only)
+job-hunt/
+
 # Env / secrets
 .env
 .env.*
