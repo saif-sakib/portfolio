@@ -20,7 +20,7 @@ export const person = {
 export const links = {
   email: 'saifahmedsakib@gmail.com',
   github: 'https://github.com/saif-sakib',
-  linkedin: 'https://www.linkedin.com/in/saif-ahmed-8a14651b0',
+  linkedin: 'https://www.linkedin.com/in/saifahmedsakib',
   codeforces: 'https://codeforces.com/profile/Saif_Ahmed008',
   tryhackme: 'https://tryhackme.com/p/AhmedSakib',
 };
@@ -32,15 +32,8 @@ export const socials = [
   { label: 'TryHackMe', handle: 'AhmedSakib', href: links.tryhackme, icon: 'shield' },
 ] as const;
 
-// PDFs live in public/cv, published from the job-pilot repo by its cv/publish.sh.
-export const cvs = [
-  { label: 'General', file: 'Saif_Ahmed_CV_General.pdf', primary: true },
-  { label: 'Backend', file: 'Saif_Ahmed_CV_Backend.pdf' },
-  { label: 'Software Engineering', file: 'Saif_Ahmed_CV_Software_Engineering.pdf' },
-  { label: 'Cybersecurity', file: 'Saif_Ahmed_CV_Cybersecurity.pdf' },
-  { label: 'DevOps', file: 'Saif_Ahmed_CV_DevOps.pdf' },
-  { label: 'AI / ML', file: 'Saif_Ahmed_CV_AI_ML.pdf' },
-];
+// The General CV, in public/cv, published from the job-pilot repo by its cv/publish.sh.
+export const cvFile = 'Saif_Ahmed_CV_General.pdf';
 
 export const glance = [
   { value: '38th', label: 'ICPC Asia Dhaka Regional 2025' },

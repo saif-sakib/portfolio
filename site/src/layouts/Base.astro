@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
-import { person, links, cvs, socials } from '../data/profile';
+import { person, links, cvFile, socials } from '../data/profile';
 
 interface Props {
   title?: string;
@@ -15,7 +15,6 @@ const {
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const primaryCv = cvs.find((c) => c.primary) ?? cvs[0];
 const ogImage = new URL(`${base}og.png`, Astro.site);
 
 // Structured data so search engines show a proper profile card.
@@ -107,7 +106,7 @@ const year = new Date().getFullYear();
             <Icon name="moon" class="i-moon" />
             <Icon name="sun" class="i-sun" />
           </button>
-          <a class="btn btn-small" href={`${base}cv/${primaryCv.file}`} target="_blank" rel="noopener">
+          <a class="btn btn-small" href={`${base}cv/${cvFile}`} target="_blank" rel="noopener">
             Résumé
           </a>
           <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-list">

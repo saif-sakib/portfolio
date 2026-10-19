@@ -4,7 +4,7 @@ My portfolio website. CVs, the master profile and job-hunt notes live in the pri
 
 ## Layout
 - `site/` — portfolio website (Astro, static, deployed to GitHub Pages by `.github/workflows/deploy.yml`). All content is in `site/src/data/profile.ts`, mirrored from `../job-pilot/profile/contents.txt`; styles in `site/src/styles/global.css`.
-- `site/public/cv/*.pdf` — the CV PDFs behind the download links. They are committed here and updated by `../job-pilot/cv/publish.sh`; don't edit them by hand.
+- `site/public/cv/Saif_Ahmed_CV_General.pdf` — the one CV the site offers (the General CV), behind both download links. It is committed here and updated by `../job-pilot/cv/publish.sh`; don't edit it by hand. The tailored CVs stay private in job-pilot.
 
 ## Rules
 - `../job-pilot/profile/contents.txt` is the single source of truth. Change it there first, then mirror the change into `site/src/data/profile.ts`.

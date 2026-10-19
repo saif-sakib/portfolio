@@ -361,48 +361,6 @@ ol {
   color: var(--ink-2);
 }
 
-.cv-menu {
-  position: relative;
-}
-
-.cv-menu summary {
-  list-style: none;
-}
-
-.cv-menu summary::-webkit-details-marker {
-  display: none;
-}
-
-.cv-menu[open] summary svg {
-  transform: rotate(180deg);
-}
-
-.cv-menu ul {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  z-index: 20;
-  min-width: 220px;
-  padding: 6px;
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.cv-menu a {
-  display: block;
-  padding: 8px 12px;
-  border-radius: 6px;
-  color: var(--ink);
-  font-size: 0.92rem;
-}
-
-.cv-menu a:hover {
-  background: var(--surface-2);
-  text-decoration: none;
-}
-
 .socials {
   display: flex;
   gap: 8px;
